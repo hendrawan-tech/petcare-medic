@@ -12,16 +12,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [],
-      child: MaterialApp(
-        title: 'Doctor Petcare App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: Routes.homeScreen,
-        onGenerateRoute: Routes.generateRoute,
+    return MaterialApp(
+      title: 'Doctor Petcare App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      initialRoute: Routes.homeScreen,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }

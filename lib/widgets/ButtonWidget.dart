@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/utils/themes.dart';
+import 'package:medic_petcare/utils/Themes.dart';
 import 'package:medic_petcare/widgets/TextWidget.dart';
 
 class ButtonWidget extends StatelessWidget {

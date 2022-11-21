@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medic_petcare/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Home/HomeScreen.dart';
 import 'package:medic_petcare/MedicalRecord/MedicalRecordScreen.dart';
-import 'package:medic_petcare/utils/themes.dart';
+import 'package:medic_petcare/utils/Themes.dart';
 import 'package:medic_petcare/widgets/ModalOptionWidget.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
