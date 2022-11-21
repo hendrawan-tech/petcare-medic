@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/homeScreen.dart';
+import 'package:medic_petcare/widgets/BottomNavigationWidget.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Routes {
   static const String homeScreen = 'homeScreen';
@@ -7,8 +8,11 @@ class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case homeScreen:
-        return MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+        return PageTransition(
+          child: BottomNavigationWidget(
+            selectedIndex: int.tryParse(settings.arguments.toString()) ?? 0,
+          ),
+          type: PageTransitionType.rightToLeft,
         );
       default:
         return MaterialPageRoute(
@@ -25,9 +29,9 @@ class NotFoundScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Center(
           child: Text("kosong"),
         ),

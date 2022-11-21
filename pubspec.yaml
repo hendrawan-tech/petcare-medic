@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -30,10 +30,18 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  page_transition: "^2.0.9"
+  intl: ^0.17.0
+  provider: ^6.0.3
+  flutter_staggered_grid_view: ^0.6.2
+  shimmer: ^2.0.0
+  flutter_svg: ^0.23.0+1
+  cached_network_image: ^3.2.0
+  flutter_secure_storage: ^5.0.2
+  permission_handler: ^10.0.0
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +59,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -73,10 +80,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: NutinoSansBold
+      fonts:
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+    - family: NutinoSansMedium
+      fonts:
+        - asset: assets/fonts/NunitoSans-SemiBold.ttf
+    - family: NutinoSansRegular
+      fonts:
+        - asset: assets/fonts/NunitoSans-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
