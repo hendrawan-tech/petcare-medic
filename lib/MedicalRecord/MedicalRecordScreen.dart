@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 
 class MedicalRecordScreen extends StatefulWidget {
   const MedicalRecordScreen({Key? key}) : super(key: key);
@@ -10,6 +11,10 @@ class MedicalRecordScreen extends StatefulWidget {
 class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: HeaderWidget(
+        title: "Transaksi",
+      ),
+    );
   }
 }
