@@ -15,11 +15,14 @@ Color orangeColor = const Color(0xffFD700B);
 Color orangeLightColor = const Color(0xffFFF6EF);
 Color borderColor = const Color(0xffE5E8ED);
 Color primaryColor = const Color(0xff22B455);
+Color secondaryColor = const Color(0xFF75EF7B);
 Color disableColor = const Color(0xFFDBDEE8);
 Color whiteColor = const Color(0xFFFFFFFF);
 Color blackColor = const Color(0xFF000000);
 Color fontDisableColor = const Color(0xFF939FC7);
 Color transparentColor = Colors.transparent;
+Color disableColorButton = const Color(0xFFD6E1FC);
+Color warningColor = const Color(0xFFEF1B0E);
 
 List<Color> gradientColor2 = [
   Color(0xff0DA54B),
