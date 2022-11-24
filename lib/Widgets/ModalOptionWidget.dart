@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/utils/Themes.dart';
-import 'package:medic_petcare/widgets/ButtonWidget.dart';
-import 'package:medic_petcare/widgets/TextWidget.dart';
+import 'package:medic_petcare/Utils/Themes.dart';
+import 'package:medic_petcare/Widgets/ButtonWidget.dart';
+import 'package:medic_petcare/Widgets/TextWidget.dart';
 
 class ModalOptionWidget extends StatefulWidget {
   final String title, subtitle, imageTop, titleButtonTop, titleButtonBottom;
@@ -126,7 +126,7 @@ class ModalOptionWidgetState extends State<ModalOptionWidget> {
                               width: MediaQuery.of(context).size.width * 1 - 80,
                               height: 48,
                               child: ButtonWidget(
-                                label: widget.titleButtonTop,
+                                title: widget.titleButtonTop,
                                 isLoading: isLoading,
                                 theme: isLoading ? 'disable' : 'primary',
                                 onPressed: () {
@@ -149,7 +149,7 @@ class ModalOptionWidgetState extends State<ModalOptionWidget> {
                                 vertical: 12,
                               ),
                               child: ButtonWidget(
-                                label: widget.titleButtonBottom,
+                                title: widget.titleButtonBottom,
                                 isLoading: isLoadingButtom,
                                 type: isLoadingButtom ? '' : 'outline',
                                 theme: isLoadingButtom ? 'disable' : '',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/utils/Themes.dart';
+import 'package:medic_petcare/Utils/Themes.dart';
 
 class TextWidget extends StatelessWidget {
   final String type, label, weight;
