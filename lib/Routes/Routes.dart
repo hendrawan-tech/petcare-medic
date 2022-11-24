@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Patient/ControlScheduleScreen.dart';
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Routes {
   static const String homeScreen = 'homeScreen';
+  static const String controlSceduleScreen = 'controlSceduleScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -12,6 +14,11 @@ class Routes {
           child: BottomNavigationWidget(
             selectedIndex: int.tryParse(settings.arguments.toString()) ?? 0,
           ),
+          type: PageTransitionType.rightToLeft,
+        );
+      case controlSceduleScreen:
+        return PageTransition(
+          child: const ControlSceduleScreen(),
           type: PageTransitionType.rightToLeft,
         );
       default:

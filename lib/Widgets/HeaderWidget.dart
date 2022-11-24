@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:medic_petcare/Utils/Themes.dart';
+
 
 class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   HeaderWidget({
