@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 
 class MedicalRecordScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _MedicalRecordScreenState extends State<MedicalRecordScreen> {
     return Scaffold(
       appBar: HeaderWidget(
         title: "Transaksi",
+        // backgroundColor: redColor,
       ),
     );
   }

@@ -18,12 +18,54 @@ class _ControlSceduleScreenState extends State<ControlSceduleScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HeaderWidget(
-        title: "Jadwal Control",
+        title: "Jadwal Kontrol",
       ),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: TextWidget(
+                label: "Jadwal Hari Ini",
+                type: "s3",
+                weight: "bold",
+              ),
+            ),
+            ListView.builder(
+              itemCount: listJadwalControl.length,
+              shrinkWrap: true,
+              padding: EdgeInsets.all(
+                defaultMargin,
+              ),
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(
+                    bottom: defaultMargin,
+                  ),
+                  child: CardControlScheduleWidget(
+                    data: listJadwalControl[index],
+                    onPress: () {
+                      print(
+                        listJadwalControl[index],
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 16,
+              ),
+              child: TextWidget(
+                label: "Jadwal yang akan datang",
+                type: "s3",
+                weight: "bold",
+              ),
+            ),
             ListView.builder(
               itemCount: listJadwalControl.length,
               shrinkWrap: true,

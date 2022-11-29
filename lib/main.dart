@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.controlSceduleScreen,
+      initialRoute: Routes.practiceScheduleScreen,
       onGenerateRoute: Routes.generateRoute,
     );
   }
