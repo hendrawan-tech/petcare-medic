@@ -177,6 +177,9 @@ class AccountScreen extends StatelessWidget {
                   size: 40,
                   color: whiteColor,
                 ),
+                SizedBox(
+                  width: 16,
+                ),
                 TextWidget(
                   label: "Log Out",
                   type: "s3",
