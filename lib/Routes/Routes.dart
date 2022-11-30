@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Home/AccountScreen.dart';
 
 import 'package:medic_petcare/Home/PracticeScheduleScreen.dart';
 import 'package:medic_petcare/Patient/ControlScheduleScreen.dart';
@@ -13,6 +14,7 @@ class Routes {
   static const String detailControlScheduleScreen =
       'detailControlScheduleScreen';
   static const String practiceScheduleScreen = 'practiceScheduleScreen';
+  static const String accountScreen = 'AccountScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -36,6 +38,11 @@ class Routes {
       case practiceScheduleScreen:
         return PageTransition(
           child: const PracticeScheduleScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case accountScreen:
+        return PageTransition(
+          child: const AccountScreen(),
           type: PageTransitionType.rightToLeft,
         );
       default:
