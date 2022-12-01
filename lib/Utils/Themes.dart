@@ -30,7 +30,7 @@ List<Color> gradientColor2 = [
 ];
 List<Color> gradientColor3 = [
   Color(0xff8ADA91),
-  Color(0xff55F2A6),
+  Color(0xff51C7A3),
 ];
 List<Color> secondaryColor2 = [
   Color(0xff75EF7B),

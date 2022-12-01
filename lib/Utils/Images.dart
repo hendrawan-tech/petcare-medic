@@ -5,3 +5,4 @@ String timeIcons = 'assets/images/timeIcons.png';
 String vectorHome1 = 'assets/images/vectorHome1.png';
 String vectorHome2 = 'assets/images/vectorHome2.png';
 String vectorHome3 = 'assets/images/vectorHome3.png';
+String iconDokter = 'assets/images/icons/iconDokter.png';
