@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Doctor Petcare App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.homeScreen,
+      initialRoute: Routes.settingsAccountScreen,
       onGenerateRoute: Routes.generateRoute,
     );
   }
