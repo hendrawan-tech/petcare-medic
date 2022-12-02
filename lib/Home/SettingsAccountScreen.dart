@@ -48,6 +48,12 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
             ),
             child: TextField(
               decoration: InputDecoration(
+                suffixIcon: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.app_registration,
+                  ),
+                ),
                 prefixIcon: Icon(
                   Icons.person_outline,
                 ),
@@ -63,6 +69,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
               horizontal: 16,
             ),
             child: TextField(
+              enabled: false,
               decoration: InputDecoration(
                 prefixIcon: Icon(
                   Icons.mail_outline,
@@ -80,6 +87,12 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
             ),
             child: TextField(
               decoration: InputDecoration(
+                suffixIcon: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.app_registration,
+                  ),
+                ),
                 prefixIcon: Icon(
                   Icons.phone_enabled_outlined,
                 ),
@@ -96,6 +109,12 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
             ),
             child: TextField(
               decoration: InputDecoration(
+                suffixIcon: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.app_registration,
+                  ),
+                ),
                 prefixIcon: Icon(
                   Icons.info_outline,
                 ),

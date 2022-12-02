@@ -106,7 +106,7 @@ class PracticeScheduleScreen extends StatelessWidget {
                           bottom: defaultMargin,
                         ),
                         child: CardPracticeScheduleWidget(
-                          test: listJadwalPraktik[index],
+                          isi: listJadwalPraktik[index],
                         ),
                       );
                     },
@@ -133,7 +133,7 @@ class PracticeScheduleScreen extends StatelessWidget {
                           bottom: defaultMargin,
                         ),
                         child: CardPracticeScheduleWidget(
-                          test: listJadwalPraktik[index],
+                          isi: listJadwalPraktik[index],
                         ),
                       );
                     },
