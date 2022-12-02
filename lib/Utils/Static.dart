@@ -73,3 +73,90 @@ List<Map<String, dynamic>> listFeatures = [
     "icon": dollarIcon,
   },
 ];
+List<Map<String, dynamic>> listJadwalUser = [
+  {
+    "id": 1,
+    "name": "Slamet Nurdin",
+    "email": "slamet@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    "id": 2,
+    "name": "Maryoto",
+    "email": "maryoto@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    "id": 3,
+    "name": "Nur Maryani",
+    "email": "nrmryn@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 4,
+    "name": "Slamet Nurdin",
+    "email": "slamet@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    "id": 5,
+    "name": "Maryoto",
+    "email": "maryoto@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    "id": 6,
+    "name": "Nur Maryani",
+    "email": "nrmryn@gmail.com",
+    "nomor": "08239489202",
+    "image":
+        "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+  }
+];
+List<Map<String, dynamic>> listJadwalDetailUser = [
+  {
+    "id": 1,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 2,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 3,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 4,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 5,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  }
+];

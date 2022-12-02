@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Acccount/AccountLandingScreen.dart';
-import 'package:medic_petcare/Home/AccountScreen.dart';
 import 'package:medic_petcare/Home/HomeScreen.dart';
 import 'package:medic_petcare/MedicalRecord/MedicalRecordScreen.dart';
-import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/ModalOptionWidget.dart';
 
@@ -25,8 +23,6 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     const HomeScreen(),
     const MedicalRecordScreen(),
     const AccountLandingScreen(),
-    const AccountLandingScreen(),
-    const AccountScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -84,28 +80,36 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: getIcon(homeIcon),
-              activeIcon: getIcon(homeActiveIcon),
+              icon: Icon(
+                Icons.home_outlined,
+                color: fontPrimaryColor,
+              ),
+              activeIcon: Icon(
+                Icons.home,
+                color: primaryColor,
+              ),
               label: "Beranda",
             ),
             BottomNavigationBarItem(
-              icon: getIcon(medicIcon),
-              activeIcon: getIcon(medicActiveIcon),
-              label: "Rekam Medis",
-            ),
-            BottomNavigationBarItem(
-              icon: getIcon(invoiceIcon),
-              activeIcon: getIcon(invoiceActiveIcon),
+              icon: Icon(
+                Icons.list_alt_outlined,
+                color: fontPrimaryColor,
+              ),
+              activeIcon: Icon(
+                Icons.list_alt,
+                color: primaryColor,
+              ),
               label: "Traksaksi",
             ),
             BottomNavigationBarItem(
-              icon: getIcon(usersIcon),
-              activeIcon: getIcon(usersActiveIcon),
-              label: "Daftar Pasien",
-            ),
-            BottomNavigationBarItem(
-              icon: getIcon(accountIcon),
-              activeIcon: getIcon(accountActiveIcon),
+              icon: Icon(
+                Icons.account_circle_outlined,
+                color: fontPrimaryColor,
+              ),
+              activeIcon: Icon(
+                Icons.account_circle,
+                color: primaryColor,
+              ),
               label: "Akun",
             ),
           ],
@@ -113,17 +117,4 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       ),
     );
   }
-}
-
-Widget getIcon(icon) {
-  return ConstrainedBox(
-    constraints: const BoxConstraints(
-      minHeight: 24,
-    ),
-    child: Image.asset(
-      icon,
-      width: 24,
-      fit: BoxFit.cover,
-    ),
-  );
 }
