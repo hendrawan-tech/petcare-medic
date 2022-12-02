@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Static.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/CardControlScheduleWidget.dart';
+import 'package:medic_petcare/Widgets/CardDetailUser.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
@@ -20,6 +22,7 @@ class DetailUserScreen extends StatelessWidget {
           children: [
             Container(
               height: 196,
+              color: backgroundColor,
               child: Row(
                 children: [
                   Padding(
@@ -36,8 +39,7 @@ class DetailUserScreen extends StatelessWidget {
                         ),
                       ),
                       child: ImageWidget(
-                        image:
-                            "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                        image: userIcon,
                         width: 86,
                       ),
                     ),
@@ -68,10 +70,12 @@ class DetailUserScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: 558,
+              height: 574,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: borderColor,
+                border: Border.all(
+                  color: borderColor,
+                ),
                 borderRadius: BorderRadius.circular(
                   38,
                 ),
@@ -112,25 +116,23 @@ class DetailUserScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 14,
+                  ),
                   ListView.builder(
-                    itemCount: listJadwalControl.length,
+                    itemCount: listJadwalDetailUser.length,
                     shrinkWrap: true,
-                    padding: EdgeInsets.all(
-                      defaultMargin,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: defaultMargin,
                     ),
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.only(
-                          bottom: 14,
+                          bottom: 12,
                         ),
-                        child: CardControlScheduleWidget(
-                          data: listJadwalControl[index],
-                          onPress: () {
-                            print(
-                              listJadwalControl[index],
-                            );
-                          },
+                        child: CardDetailUser(
+                          data: listJadwalDetailUser[index],
                         ),
                       );
                     },

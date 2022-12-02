@@ -1,3 +1,5 @@
+import 'package:medic_petcare/Utils/Images.dart';
+
 List<Map<String, dynamic>> listJadwalControl = [
   {
     "id": 1,
@@ -92,5 +94,42 @@ List<Map<String, dynamic>> listJadwalUser = [
     "nomor": "08239489202",
     "image":
         "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+  }
+];
+List<Map<String, dynamic>> listJadwalDetailUser = [
+  {
+    "id": 1,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 2,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 3,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 4,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
+  },
+  {
+    "id": 5,
+    "name": "Chiyoo",
+    "jenis": "Kucing Alaska",
+    "gender": "Jantan / 2 bulan",
+    "image": iconPet,
   }
 ];
