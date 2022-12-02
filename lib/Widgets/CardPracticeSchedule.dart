@@ -3,11 +3,11 @@ import "package:flutter/material.dart";
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
 class CardPracticeScheduleWidget extends StatelessWidget {
-  final Map<String, dynamic> test;
+  final Map<String, dynamic> isi;
 
   const CardPracticeScheduleWidget({
     super.key,
-    required this.test,
+    required this.isi,
   });
 
   @override
@@ -32,7 +32,7 @@ class CardPracticeScheduleWidget extends StatelessWidget {
             child: Column(
               children: [
                 TextWidget(
-                  label: test["hari"],
+                  label: isi["hari"],
                   weight: "bold",
                   type: "s3",
                 ),
@@ -40,7 +40,7 @@ class CardPracticeScheduleWidget extends StatelessWidget {
                   height: 12,
                 ),
                 TextWidget(
-                  label: test["date"],
+                  label: isi["date"],
                 ),
               ],
             ),
@@ -61,7 +61,7 @@ class CardPracticeScheduleWidget extends StatelessWidget {
                   weight: "bold",
                 ),
                 TextWidget(
-                  label: test["description"],
+                  label: isi["description"],
                   type: "b2",
                 ),
               ],

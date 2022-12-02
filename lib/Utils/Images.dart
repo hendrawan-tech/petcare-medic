@@ -22,3 +22,8 @@ String accountIcon = 'assets/images/bottomMenu/accountIcon.png';
 String accountActiveIcon = 'assets/images/bottomMenu/accountActiveIcon.png';
 String usersIcon = 'assets/images/bottomMenu/usersIcon.png';
 String usersActiveIcon = 'assets/images/bottomMenu/usersActiveIcon.png';
+
+String iconPet = 'assets/images/icons/iconPet.png';
+String userIcon = 'assets/images/icons/userIcon.png';
+String iconUser = 'assets/images/icons/iconUser.png';
+String pencil = 'assets/images/icons/pencil.png';
