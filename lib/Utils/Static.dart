@@ -1,3 +1,6 @@
+import 'package:medic_petcare/Routes/Routes.dart';
+import 'package:medic_petcare/Utils/Images.dart';
+
 List<Map<String, dynamic>> listJadwalControl = [
   {
     "id": 1,
@@ -42,5 +45,31 @@ List<Map<String, dynamic>> listJadwalPraktik = [
     "hari": "Senin",
     "date": "06 Okt 2022",
     "description": "Praktik dimulai dan diakhiri\n07.00 - 17.00 WITA",
+  },
+];
+List<Map<String, dynamic>> listFeatures = [
+  {
+    "id": 1,
+    "label": "Jadwal Kontrol",
+    "onpress": Routes.controlSceduleScreen,
+    "icon": timeIcon,
+  },
+  {
+    "id": 2,
+    "label": "Jadwal Praktik",
+    "onpress": Routes.practiceScheduleScreen,
+    "icon": calendarIcon,
+  },
+  {
+    "id": 3,
+    "label": "Daftar Antrian",
+    "onpress": Routes.controlSceduleScreen,
+    "icon": documentIcon,
+  },
+  {
+    "id": 4,
+    "label": "Tagihan",
+    "onpress": Routes.controlSceduleScreen,
+    "icon": dollarIcon,
   },
 ];
