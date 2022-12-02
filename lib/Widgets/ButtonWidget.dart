@@ -27,7 +27,7 @@ class ButtonWidget extends StatelessWidget {
     this.isLoading = false,
     this.translateParams,
     this.textSize = 'b2',
-    this.upperCase = true,
+    this.upperCase = false,
     this.isEnable = true,
   }) : super(key: key);
 

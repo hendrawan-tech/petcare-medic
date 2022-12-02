@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
 import 'package:medic_petcare/Screen/Home/AccountScreen.dart';
 import 'package:medic_petcare/Screen/Home/PracticeScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
+import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/DetailUserScreen.dart';
 import 'package:medic_petcare/Screen/Patient/UserListScreen.dart';
-
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class Routes {
+  static const String splashScreen = 'splashScreen';
+  static const String loginScreen = 'loginScreen';
   static const String homeScreen = 'homeScreen';
   static const String controlSceduleScreen = 'controlSceduleScreen';
   static const String detailControlScheduleScreen =
@@ -23,6 +26,16 @@ class Routes {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case splashScreen:
+        return PageTransition(
+          child: const SplashScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case loginScreen:
+        return PageTransition(
+          child: const LoginScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
       case homeScreen:
         return PageTransition(
           child: BottomNavigationWidget(
