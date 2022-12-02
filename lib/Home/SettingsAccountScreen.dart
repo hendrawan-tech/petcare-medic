@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
@@ -42,24 +43,45 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
           SizedBox(
             height: 25,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                suffixIcon: GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.app_registration,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                  ),
+                  child: ImageWidget(
+                    image: iconUser,
+                    height: 22,
                   ),
                 ),
-                prefixIcon: Icon(
-                  Icons.person_outline,
-                ),
-                labelText: "Name",
               ),
-            ),
+              SizedBox(
+                width: 14,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextWidget(
+                    label: "Name",
+                  ),
+                  TextWidget(
+                    label: "Annisa Siti",
+                  ),
+                ],
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 20,
+                ),
+                child: ImageWidget(
+                  image: pencil,
+                  height: 20,
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: 16,
@@ -91,6 +113,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
                   onTap: () {},
                   child: Icon(
                     Icons.app_registration,
+                    color: primaryColor,
                   ),
                 ),
                 prefixIcon: Icon(
@@ -113,8 +136,10 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
                   onTap: () {},
                   child: Icon(
                     Icons.app_registration,
+                    color: primaryColor,
                   ),
                 ),
+                suffixIconColor: primaryColor,
                 prefixIcon: Icon(
                   Icons.info_outline,
                 ),
