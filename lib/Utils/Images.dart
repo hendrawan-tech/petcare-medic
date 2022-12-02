@@ -27,3 +27,4 @@ String iconPet = 'assets/images/icons/iconPet.png';
 String userIcon = 'assets/images/icons/userIcon.png';
 String iconUser = 'assets/images/icons/iconUser.png';
 String pencil = 'assets/images/icons/pencil.png';
+String cellphoneIcon = 'assets/images/icons/cellphoneIcon.png';
