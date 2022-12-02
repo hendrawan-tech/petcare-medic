@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/Home/AccountScreen.dart';
-
-import 'package:medic_petcare/Home/PracticeScheduleScreen.dart';
-
-import 'package:medic_petcare/Home/SettingsAccountScreen.dart';
-import 'package:medic_petcare/Patient/ControlScheduleScreen.dart';
-import 'package:medic_petcare/Patient/DetailControlScheduleScreen.dart';
-import 'package:medic_petcare/Patient/DetailUserScreen.dart';
-import 'package:medic_petcare/Patient/UserListScreen.dart';
+import 'package:medic_petcare/Screen/Home/AccountScreen.dart';
+import 'package:medic_petcare/Screen/Home/PracticeScheduleScreen.dart';
+import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
+import 'package:medic_petcare/Screen/Patient/ControlScheduleScreen.dart';
+import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
+import 'package:medic_petcare/Screen/Patient/DetailUserScreen.dart';
+import 'package:medic_petcare/Screen/Patient/UserListScreen.dart';
 
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';

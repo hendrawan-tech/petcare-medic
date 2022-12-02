@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:medic_petcare/Acccount/AccountLandingScreen.dart';
-import 'package:medic_petcare/Home/AccountScreen.dart';
-import 'package:medic_petcare/Home/HomeScreen.dart';
-import 'package:medic_petcare/MedicalRecord/MedicalRecordScreen.dart';
+import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
+import 'package:medic_petcare/Screen/Home/AccountScreen.dart';
+import 'package:medic_petcare/Screen/Home/HomeScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
+
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/ModalOptionWidget.dart';
