@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
+import 'package:medic_petcare/Widgets/InputWidget.dart';
 
 class MedicalRecordScreen extends StatefulWidget {
   const MedicalRecordScreen({Key? key}) : super(key: key);
