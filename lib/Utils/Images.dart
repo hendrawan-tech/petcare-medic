@@ -27,3 +27,10 @@ String iconPet = 'assets/images/icons/iconPet.png';
 String userIcon = 'assets/images/icons/userIcon.png';
 String iconUser = 'assets/images/icons/iconUser.png';
 String pencil = 'assets/images/icons/pencil.png';
+
+// logo
+String logoWhite = 'assets/images/logo/logoWhite.png';
+String logoBlack = 'assets/images/logo/logoBlack.png';
+
+// background
+String backgroundLogin = 'assets/images/background/backgroundLogin.png';

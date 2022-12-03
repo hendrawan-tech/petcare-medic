@@ -2,18 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
-import 'package:shimmer/shimmer.dart';
 
 class InputWidget extends StatefulWidget {
   final String specialRules, title, hintText;
-  final Widget? iconLeft, iconRight;
-  final bool enable,
-      readonly,
-      obscure,
-      showShadow,
-      isSearch,
-      loading,
-      autoFocus;
+  final IconData? iconLeft, iconRight;
+  final bool enable, readonly, obscure, showShadow, isSearch;
   final TextInputType? type;
   final TextEditingController? controller;
   final String errText, typeInput;
@@ -43,7 +36,7 @@ class InputWidget extends StatefulWidget {
     this.readOnlyColorCustom,
     this.border = 'all',
     this.inputWidth,
-    this.inputHeight = 56,
+    this.inputHeight = 50,
     this.inputPadding,
     this.parentPadding,
     this.showShadow = true,
@@ -51,10 +44,8 @@ class InputWidget extends StatefulWidget {
     this.maxChar = 50,
     this.colorTextError,
     this.customTypeText = 'b1',
-    this.specialRules = 'specialCharacter',
+    this.specialRules = '',
     this.isSearch = false,
-    this.loading = false,
-    this.autoFocus = false,
   }) : super(key: key);
 
   @override
@@ -143,11 +134,6 @@ class _InputWidgetState extends State<InputWidget> {
         tmpRules = [];
         tmpRules.add(LengthLimitingTextInputFormatter(16));
         tmpRules.add(FilteringTextInputFormatter.digitsOnly);
-        tmpRules.add(
-          FilteringTextInputFormatter.deny(
-            RegExp(r'^0+'),
-          ),
-        );
         break;
       case 'onlyNumber':
         tmpRules = [];
@@ -161,22 +147,11 @@ class _InputWidgetState extends State<InputWidget> {
       case 'onlyAlphaNumeric':
         tmpRules.add(FilteringTextInputFormatter.allow(RegExp("[a-zA-Z0-9]")));
         break;
-      case 'allowPassword':
-        // tmpRules.add(FilteringTextInputFormatter.allow(RegExp("[a-zA-Z0-9]")));
-        tmpRules.add(FilteringTextInputFormatter.deny(
-            RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])$')));
-        break;
-      case 'specialCharacter':
-        tmpRules.add(
-          FilteringTextInputFormatter.allow(RegExp("[a-zA-Z0-9 .,@-_]")),
-        );
-
-        break;
       default:
     }
-    if (!widget.obscure && !widget.title.contains('email')) {
-      tmpRules.add(UpperCaseTextFormatter());
-    }
+    // if (!widget.obscure && !widget.title.contains('email')) {
+    //   tmpRules.add(UpperCaseTextFormatter());
+    // }
     return tmpRules;
   }
 
@@ -212,20 +187,19 @@ class _InputWidgetState extends State<InputWidget> {
                 ),
                 decoration: BoxDecoration(
                   color: widget.readonly == true
-                      ? (widget.readOnlyColorCustom ?? backgroundColor)
+                      ? (widget.readOnlyColorCustom ?? disableColor)
                       : whiteColor,
-                  borderRadius: widget.border == 'all'
-                      ? BorderRadius.circular(defaultBorderRadius)
-                      : null,
+                  borderRadius:
+                      widget.border == 'all' ? BorderRadius.circular(8) : null,
                   border: _borderInput(),
                   boxShadow: widget.showShadow
                       ? [
                           BoxShadow(
                             // ignore: dead_code
                             color: Colors.grey.withOpacity(
-                                isFocus && !widget.readonly ? 0.5 : 0),
+                                isFocus && !widget.readonly ? 0.2 : 0),
                             spreadRadius: 1,
-                            blurRadius: defaultBorderRadius,
+                            blurRadius: 12,
                             offset: const Offset(
                                 -4, 6), // changes position of shadow
                           ),
@@ -235,7 +209,6 @@ class _InputWidgetState extends State<InputWidget> {
                 child: IntrinsicWidth(
                   child: TextFormField(
                     focusNode: _focus,
-                    autofocus: widget.autoFocus,
                     textAlignVertical: TextAlignVertical.center,
                     obscureText: widget.obscure ? obscure : widget.obscure,
                     controller: widget.controller,
@@ -244,11 +217,22 @@ class _InputWidgetState extends State<InputWidget> {
                     inputFormatters: specialRules,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      prefixIcon: widget.iconLeft,
+                      prefixIcon: widget.iconLeft.runtimeType != Null
+                          ? Padding(
+                              padding: const EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(
+                                widget.iconLeft,
+                                color:
+                                    isFocus ? primaryColor : fontSecondaryColor,
+                              ),
+                            )
+                          : null,
                       hintText: widget.hintText,
                       contentPadding: widget.inputPadding ??
                           const EdgeInsets.symmetric(
-                            vertical: 11,
+                            vertical: 14,
                           ),
                       suffixIcon: widget.obscure
                           ? GestureDetector(
@@ -266,13 +250,21 @@ class _InputWidgetState extends State<InputWidget> {
                                 size: 20,
                               ),
                             )
-                          : widget.iconRight,
-                      suffixIconConstraints:
-                          const BoxConstraints(maxHeight: 22),
-                      suffixIconColor: primaryColor,
-                      prefixIconColor: primaryColor,
-                      prefixIconConstraints:
-                          const BoxConstraints(maxHeight: 22),
+                          : Icon(
+                              widget.iconRight,
+                              color:
+                                  isFocus ? secondaryColor : fontSecondaryColor,
+                            ),
+                      suffixIconConstraints: const BoxConstraints(
+                        maxHeight: 20,
+                        maxWidth: 35,
+                      ),
+                      suffixIconColor: secondaryColor,
+                      prefixIconColor: secondaryColor,
+                      prefixIconConstraints: const BoxConstraints(
+                        maxHeight: 20,
+                        maxWidth: 35,
+                      ),
                       fillColor: Colors.red,
                     ),
                     keyboardType: widget.type,
@@ -301,40 +293,24 @@ class _InputWidgetState extends State<InputWidget> {
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextWidget(
-                label: widget.title,
-                type: 'l1',
-                color: fontSecondaryColor,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              widget.loading
-                  ? Shimmer.fromColors(
-                      baseColor: fontGreyColor2.withAlpha(200),
-                      highlightColor: whiteColor,
-                      enabled: true,
-                      loop: 40,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: fontGreyColor2,
-                          borderRadius: BorderRadius.circular(
-                            defaultBorderRadius,
-                          ),
-                        ),
-                        margin: const EdgeInsets.only(
-                          top: 4,
-                        ),
-                        height: 20,
-                        width: 125,
+              widget.title == "hidden"
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 8.0,
                       ),
-                    )
-                  : TextWidget(
-                      label: widget.hintText,
-                      type: widget.customTypeText,
-                      weight: 'medium',
-                      color: fontPrimaryColor,
+                      child: TextWidget(
+                        label: widget.title,
+                        type: 'l1',
+                        color: fontSecondaryColor,
+                      ),
                     ),
+              TextWidget(
+                label: widget.hintText,
+                type: widget.customTypeText,
+                weight: 'medium',
+                color: fontPrimaryColor,
+              ),
             ],
           );
   }
