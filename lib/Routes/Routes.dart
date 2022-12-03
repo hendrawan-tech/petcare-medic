@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
-import 'package:medic_petcare/Screen/Home/AccountScreen.dart';
+
 import 'package:medic_petcare/Screen/Home/PracticeScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
-import 'package:medic_petcare/Screen/Patient/DetailUserScreen.dart';
-import 'package:medic_petcare/Screen/Patient/UserListScreen.dart';
+import 'package:medic_petcare/Screen/User/DetailUserScreen.dart';
+import 'package:medic_petcare/Screen/User/UserListScreen.dart';
+
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -19,7 +21,7 @@ class Routes {
   static const String detailControlScheduleScreen =
       'detailControlScheduleScreen';
   static const String practiceScheduleScreen = 'practiceScheduleScreen';
-  static const String accountScreen = 'AccountScreen';
+  static const String accountLandingScreen = 'AccountLandingScreen';
   static const String settingsAccountScreen = 'SettingsAccountScreen';
   static const String userListScreen = 'UserListScreen';
   static const String detailUserScreen = 'DetailUserScreen';
@@ -58,9 +60,9 @@ class Routes {
           child: const PracticeScheduleScreen(),
           type: PageTransitionType.rightToLeft,
         );
-      case accountScreen:
+      case accountLandingScreen:
         return PageTransition(
-          child: const AccountScreen(),
+          child: const AccountLandingScreen(),
           type: PageTransitionType.rightToLeft,
         );
       case settingsAccountScreen:
