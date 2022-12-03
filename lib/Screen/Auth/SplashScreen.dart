@@ -1,11 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Routes/Routes.dart';
 import 'package:medic_petcare/Utils/Images.dart';
+import 'package:medic_petcare/Utils/Storage.dart';
+import 'package:medic_petcare/Utils/StorageKey.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,14 +19,41 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Timer(const Duration(seconds: 2), () {
+  getToken() async {
+    var tokenAuth = await Storage.get(tokenStorageKey);
+    if (tokenAuth != null) {
+      await getUserData();
+    } else {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(
         context,
         Routes.loginScreen,
       );
+    }
+  }
+
+  getUserData() async {
+    await Provider.of<UserProvider>(
+      context,
+      listen: false,
+    ).getUser().then((value) {
+      if (value['meta']['code'] == 200) {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.homeScreen,
+        );
+      } else {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.loginScreen,
+        );
+      }
     });
+  }
+
+  @override
+  void initState() {
+    getToken();
     super.initState();
   }
 
