@@ -51,16 +51,16 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           barrierDismissible: true,
           builder: (BuildContext context) {
             return ModalOptionWidget(
-              title: "confirmTitle",
-              subtitle: "confirmClose",
-              titleButtonTop: 'confirm.yes',
-              titleButtonBottom: 'confirm.no',
+              title: "Konfirmasi",
+              subtitle: "Apakah anda yakin ingin keluar dari aplikasi?",
+              titleButtonTop: 'Iya',
+              titleButtonBottom: 'Tidak',
               onPressButtonTop: onPressBottomTop,
               onPressButtonBottom: onPressButtonBottom,
               imageTopHeight: 125,
-              textAlign: TextAlign.center,
-              axisText: CrossAxisAlignment.center,
-              alignmentText: Alignment.center,
+              textAlign: TextAlign.left,
+              axisText: CrossAxisAlignment.start,
+              alignmentText: Alignment.centerLeft,
             );
           },
         )) ??

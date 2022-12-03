@@ -1,196 +1,288 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Config/Network.dart';
+import 'package:medic_petcare/Provider/UserProvider.dart';
+import 'package:medic_petcare/Routes/Routes.dart';
+import 'package:medic_petcare/Utils/Images.dart';
+import 'package:medic_petcare/Utils/Storage.dart';
+import 'package:medic_petcare/Utils/StorageKey.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
-import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
+import 'package:medic_petcare/Widgets/ModalOptionWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:provider/provider.dart';
 
-class AccountLandingScreen extends StatelessWidget {
+class AccountLandingScreen extends StatefulWidget {
   const AccountLandingScreen({super.key});
+
+  @override
+  State<AccountLandingScreen> createState() => _AccountLandingScreenState();
+}
+
+class _AccountLandingScreenState extends State<AccountLandingScreen> {
+  modalConfirmLogout() async {
+    return showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return ModalOptionWidget(
+          title: "Konfirmasi",
+          subtitle: "Apakah anda yakin ingin keluar dari akun ini?",
+          titleButtonTop: 'Iya',
+          titleButtonBottom: 'Tidak',
+          onPressButtonTop: onLogoutAction,
+          onPressButtonBottom: () {
+            Navigator.pop(context);
+          },
+          imageTopHeight: 125,
+          textAlign: TextAlign.left,
+          axisText: CrossAxisAlignment.start,
+          alignmentText: Alignment.centerLeft,
+        );
+      },
+    );
+  }
+
+  onSuccessLogout() {
+    Navigator.pop(context);
+    Navigator.pushReplacementNamed(
+      context,
+      Routes.loginScreen,
+    );
+  }
+
+  onLogoutAction() async {
+    await Storage.get(tokenStorageKey);
+    onSuccessLogout();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HeaderWidget(title: "Account"),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: gradientColor3,
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-        ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 22,
-              ),
-              child: Container(
-                height: 90,
-                width: 90,
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(
-                    90,
-                  ),
-                ),
-                child: ImageWidget(
-                  image:
-                      "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-                  width: 90,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            TextWidget(
-              label: "Drh. Annisa",
-              weight: "bold",
-              type: "s3",
+      backgroundColor: whiteColor,
+      body: Column(
+        children: [
+          const HeaderProfile(),
+          Container(
+            decoration: BoxDecoration(
               color: whiteColor,
-            ),
-            TextWidget(
-              label: "annisa@gmail.com",
-              type: "b2",
-              color: whiteColor,
-            ),
-            SizedBox(
-              height: 56,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Icon(
-                      Icons.settings,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    TextWidget(
-                      label: "Pengaturan Akun",
-                      type: "medium",
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.circular(
-                    8,
-                  ),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(
+                  25,
                 ),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Icon(
-                      Icons.calendar_month,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    TextWidget(
-                      label: "Daftar User",
-                      type: "medium",
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.circular(
-                    8,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Icon(
-                      Icons.bar_chart,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    TextWidget(
-                      label: "Laporan",
-                      type: "medium",
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.circular(
-                    8,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 124,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            transform: Matrix4.translationValues(0.0, -50.0, 0.0),
+            child: Column(
               children: [
-                Icon(
-                  Icons.exit_to_app,
-                  size: 40,
-                  color: whiteColor,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 16,
+                  ),
+                  child: MenuItem(
+                    label: "Daftar User",
+                    icon: const Icon(
+                      Icons.list_alt,
+                    ),
+                    onPress: () {},
+                  ),
                 ),
-                SizedBox(
-                  width: 16,
+                MenuItem(
+                  label: "Laporan",
+                  icon: const Icon(
+                    Icons.bar_chart_rounded,
+                  ),
+                  onPress: () {},
                 ),
-                TextWidget(
-                  label: "Log Out",
-                  type: "s3",
-                  weight: "bold",
-                  color: whiteColor,
+                MenuItem(
+                  label: "Logout",
+                  icon: const Icon(
+                    Icons.logout_rounded,
+                  ),
+                  onPress: () {
+                    modalConfirmLogout();
+                  },
                 ),
               ],
+            ),
+          ),
+          const Spacer(),
+          TextWidget(
+            label: "Version 1.0.0",
+            color: fontGreyColor3,
+            type: 'l1',
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          TextWidget(
+            label: "Copyright 2022 Bontang Petcare",
+            color: fontGreyColor3,
+            type: 'l1',
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  final String label;
+  final Icon icon;
+  final Function onPress;
+  const MenuItem({
+    Key? key,
+    required this.label,
+    required this.icon,
+    required this.onPress,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onPress();
+      },
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: whiteColor,
+          border: Border(
+            bottom: BorderSide(
+              color: borderColor,
+              width: 1,
+            ),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
+        ),
+        margin: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                icon,
+                SizedBox(
+                  width: defaultMargin,
+                ),
+                TextWidget(
+                  label: label,
+                  type: "medium",
+                  color: fontPrimaryColor,
+                ),
+              ],
+            ),
+            const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 16,
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class HeaderProfile extends StatefulWidget {
+  const HeaderProfile({Key? key}) : super(key: key);
+
+  @override
+  State<HeaderProfile> createState() => _HeaderProfileState();
+}
+
+class _HeaderProfileState extends State<HeaderProfile> {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<UserProvider>(
+      builder: (context, value, child) {
+        var user = value.getUserData;
+        return Container(
+          width: double.infinity,
+          height: 240,
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
+          transform: Matrix4.translationValues(0.0, -20.0, 0.0),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                backgroundProfile,
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    width: 60,
+                    height: 60,
+                    margin: EdgeInsets.only(
+                      right: defaultMargin,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        60,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        ImageWidget(
+                          image: "${Network().photoUrl}${user['avatar']}",
+                          width: 60,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextWidget(
+                        label: user['name'],
+                        type: 's3',
+                        weight: 'bold',
+                        color: whiteColor,
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      TextWidget(
+                        label: user['email'],
+                        type: 'b2',
+                        color: whiteColor,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Container(
+                padding: const EdgeInsets.all(
+                  8,
+                ),
+                decoration: BoxDecoration(
+                  color: whiteColor,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.settings,
+                  size: 18,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

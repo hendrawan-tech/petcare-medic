@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:medic_petcare/Config/Network.dart';
+import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Static.dart';
 import 'package:medic_petcare/Widgets/BadgeWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -35,48 +38,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        clipBehavior: Clip.hardEdge,
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            50,
-                          ),
-                        ),
-                        child: ImageWidget(
-                          image: dokterIcon,
-                        ),
-                      ),
-                      ImageWidget(
-                        image: notifIcon,
-                        width: 40,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: defaultMargin,
-                  ),
-                  TextWidget(
-                    label: "Welcome",
-                    type: 'b2',
-                    color: fontSecondaryColor,
-                  ),
-                  const SizedBox(
-                    height: 2,
-                  ),
-                  TextWidget(
-                    label: "Drh. Annisa",
-                    type: 's2',
-                    weight: 'bold',
-                    color: fontPrimaryColor,
-                  ),
+                  const ProfileSection(),
                   const CardSchedule(),
                   Padding(
                     padding: EdgeInsets.only(
@@ -217,6 +179,67 @@ class CardQueue extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ProfileSection extends StatelessWidget {
+  const ProfileSection({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<UserProvider>(
+      builder: (context, value, child) {
+        var user = value.getUserData;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  clipBehavior: Clip.hardEdge,
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      50,
+                    ),
+                  ),
+                  child: ImageWidget(
+                    image: "${Network().photoUrl}${user['avatar']}",
+                    width: double.infinity,
+                  ),
+                ),
+                ImageWidget(
+                  image: notifIcon,
+                  width: 40,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: defaultMargin,
+            ),
+            TextWidget(
+              label: "Welcome",
+              type: 'b2',
+              color: fontSecondaryColor,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            TextWidget(
+              label: user['name'],
+              type: 's2',
+              weight: 'bold',
+              color: fontPrimaryColor,
+            ),
+          ],
+        );
+      },
     );
   }
 }

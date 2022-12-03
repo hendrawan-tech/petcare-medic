@@ -126,6 +126,7 @@ class ModalOptionWidgetState extends State<ModalOptionWidget> {
                               width: MediaQuery.of(context).size.width * 1 - 80,
                               height: 48,
                               child: ButtonWidget(
+                                upperCase: true,
                                 title: widget.titleButtonTop,
                                 isLoading: isLoading,
                                 theme: isLoading ? 'disable' : 'primary',
@@ -176,39 +177,3 @@ class ModalOptionWidgetState extends State<ModalOptionWidget> {
     );
   }
 }
-
-// class ModalOptionWidget extends StatelessWidget {
-//   final String title, subtitle, widget.imageTop, widget.titleButtonTop, titleButtonBottom;
-//   final CrossAxisAlignment widget.axisText;
-//   final Alignment alignmentText;
-//   final double imageTopWidth, imageTopHeight;
-//   final TextAlign textAlign;
-//   final double imageWidth, imageHeight;
-//   final Widget? widget.customSubtitle;
-//   final bool isLoading;
-//   final void Function()? onPressButtonTop, onPressButtonBottom;
-//   const ModalOptionWidget({
-//     Key? key,
-//     this.title = '',
-//     this.subtitle = '',
-//     this.imageTop = '',
-//     this.imageTopWidth = 100,
-//     this.imageTopHeight = 100,
-//     this.axisText = CrossAxisAlignment.center,
-//     this.alignmentText = Alignment.centerLeft,
-//     this.textAlign = TextAlign.left,
-//     this.titleButtonTop = '',
-//     this.titleButtonBottom = '',
-//     this.onPressButtonTop,
-//     this.onPressButtonBottom,
-//     this.imageWidth = 100,
-//     this.imageHeight = 100,
-//     this.isLoading = false,
-//     this.customSubtitle,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-    
-//   }
-// }

@@ -36,3 +36,4 @@ String logoBlack = 'assets/images/logo/logoBlack.png';
 
 // background
 String backgroundLogin = 'assets/images/background/backgroundLogin.png';
+String backgroundProfile = 'assets/images/background/backgroundProfile.png';

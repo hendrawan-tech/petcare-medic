@@ -14,6 +14,12 @@ class PracticeScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var d = DateTime.now();
+    var weekDay = d.weekday;
+    var firstDayOfWeek = d.subtract(Duration(days: weekDay));
+    var lastDayOfWeek = d.subtract(Duration(days: weekDay + 6));
+    print(firstDayOfWeek);
+    print(lastDayOfWeek);
     return Scaffold(
       appBar: HeaderWidget(title: "Jadwal Praktik"),
       body: SingleChildScrollView(
