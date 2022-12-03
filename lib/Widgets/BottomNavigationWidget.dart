@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
-import 'package:medic_petcare/Screen/Home/AccountScreen.dart';
+
 import 'package:medic_petcare/Screen/Home/HomeScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
+import 'package:medic_petcare/Screen/Patient/PatientListScreen.dart';
 
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
@@ -26,8 +27,8 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     const HomeScreen(),
     const MedicalRecordScreen(),
     const AccountLandingScreen(),
+    const PatientListScreen(),
     const AccountLandingScreen(),
-    const AccountScreen(),
   ];
 
   void _onItemTapped(int index) {
