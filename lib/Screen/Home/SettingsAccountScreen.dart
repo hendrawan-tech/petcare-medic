@@ -18,6 +18,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: HeaderWidget(
         title: "Settings Account",
       ),
@@ -67,7 +68,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
                   ),
                 ),
                 ImageWidget(
-                  image: pencil,
+                  image: pencilIcon,
                   height: 20,
                   width: 20,
                 ),
@@ -120,7 +121,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
                   ),
                 ),
                 ImageWidget(
-                  image: pencil,
+                  image: pencilIcon,
                   height: 20,
                   width: 20,
                 ),
@@ -149,7 +150,7 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
                   ),
                 ),
                 ImageWidget(
-                  image: pencil,
+                  image: pencilIcon,
                   height: 20,
                   width: 20,
                 ),

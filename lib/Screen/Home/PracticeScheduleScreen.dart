@@ -31,7 +31,7 @@ class PracticeScheduleScreen extends StatelessWidget {
                       left: 24,
                     ),
                     child: ImageWidget(
-                      image: iconDokter,
+                      image: dokterIcon,
                       height: 124,
                     ),
                   ),
