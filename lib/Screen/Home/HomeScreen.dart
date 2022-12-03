@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         child: ImageWidget(
-                          image: iconDokter,
+                          image: dokterIcon,
                         ),
                       ),
                       ImageWidget(
