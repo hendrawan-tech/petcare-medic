@@ -51,19 +51,19 @@ List<Map<String, dynamic>> listFeatures = [
   {
     "id": 1,
     "label": "Jadwal Kontrol",
-    "onpress": Routes.controlSceduleScreen,
+    "onpress": Routes.listcontrolSceduleScreen,
     "icon": timeIcon,
   },
   {
     "id": 2,
     "label": "Jadwal Praktik",
-    "onpress": Routes.practiceScheduleScreen,
+    "onpress": Routes.practiceScheduleLandingScreen,
     "icon": calendarIcon,
   },
   {
     "id": 3,
     "label": "Daftar Antrian",
-    "onpress": Routes.controlSceduleScreen,
+    "onpress": Routes.listcontrolSceduleScreen,
     "icon": documentIcon,
   },
   {

@@ -9,8 +9,8 @@ import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
-class PracticeScheduleScreen extends StatelessWidget {
-  const PracticeScheduleScreen({super.key});
+class PracticeScheduleLandingScreen extends StatelessWidget {
+  const PracticeScheduleLandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

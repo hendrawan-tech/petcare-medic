@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
+import 'package:medic_petcare/Screen/Home/PracticeScheduleLandingScreen.dart';
 
-import 'package:medic_petcare/Screen/Home/PracticeScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
-import 'package:medic_petcare/Screen/Patient/ControlScheduleScreen.dart';
+
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
+import 'package:medic_petcare/Screen/Patient/ListControlScheduleScreen.dart';
+import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
+import 'package:medic_petcare/Screen/User/DetailInvoiceScreen.dart';
 
 import 'package:medic_petcare/Screen/User/DetailUserScreen.dart';
 import 'package:medic_petcare/Screen/User/ListInvoiceScreen.dart';
-import 'package:medic_petcare/Screen/User/UserListScreen.dart';
+import 'package:medic_petcare/Screen/User/ListUserScreen.dart';
 
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';
@@ -19,15 +22,18 @@ class Routes {
   static const String splashScreen = 'splashScreen';
   static const String loginScreen = 'loginScreen';
   static const String homeScreen = 'homeScreen';
-  static const String controlSceduleScreen = 'controlSceduleScreen';
+  static const String listcontrolSceduleScreen = 'ListcontrolSceduleScreen';
   static const String detailControlScheduleScreen =
       'detailControlScheduleScreen';
-  static const String practiceScheduleScreen = 'practiceScheduleScreen';
+  static const String practiceScheduleLandingScreen =
+      'PracticeScheduleLandingScreen';
   static const String accountLandingScreen = 'AccountLandingScreen';
   static const String settingsAccountScreen = 'SettingsAccountScreen';
-  static const String userListScreen = 'UserListScreen';
+  static const String listUserScreen = 'ListUserScreen';
   static const String detailUserScreen = 'DetailUserScreen';
   static const String listInvoiceScreen = 'ListInvoiceScreen';
+  static const String detailInvoiceScreen = 'DetailInvoiceScreen';
+  static const String listPatientScreen = 'ListPatientScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -48,9 +54,9 @@ class Routes {
           ),
           type: PageTransitionType.rightToLeft,
         );
-      case controlSceduleScreen:
+      case listcontrolSceduleScreen:
         return PageTransition(
-          child: const ControlSceduleScreen(),
+          child: const ListControlSceduleScreen(),
           type: PageTransitionType.rightToLeft,
         );
       case detailControlScheduleScreen:
@@ -58,9 +64,9 @@ class Routes {
           child: const DetailControlScheduleScreen(),
           type: PageTransitionType.rightToLeft,
         );
-      case practiceScheduleScreen:
+      case practiceScheduleLandingScreen:
         return PageTransition(
-          child: const PracticeScheduleScreen(),
+          child: const PracticeScheduleLandingScreen(),
           type: PageTransitionType.rightToLeft,
         );
       case accountLandingScreen:
@@ -73,9 +79,9 @@ class Routes {
           child: const SettingsAccountScreen(),
           type: PageTransitionType.rightToLeft,
         );
-      case userListScreen:
+      case listUserScreen:
         return PageTransition(
-          child: const UserListScreen(),
+          child: const ListUserScreen(),
           type: PageTransitionType.rightToLeft,
         );
       case detailUserScreen:
@@ -86,6 +92,16 @@ class Routes {
       case listInvoiceScreen:
         return PageTransition(
           child: const ListInvoiceScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case detailInvoiceScreen:
+        return PageTransition(
+          child: const DetailInvoiceScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case listPatientScreen:
+        return PageTransition(
+          child: const ListPatientScreen(),
           type: PageTransitionType.rightToLeft,
         );
       default:
