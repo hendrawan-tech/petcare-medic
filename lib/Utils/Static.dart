@@ -69,7 +69,7 @@ List<Map<String, dynamic>> listFeatures = [
   {
     "id": 4,
     "label": "Tagihan",
-    "onpress": Routes.controlSceduleScreen,
+    "onpress": Routes.billScreen,
     "icon": dollarIcon,
   },
 ];
@@ -158,5 +158,49 @@ List<Map<String, dynamic>> listJadwalDetailUser = [
     "jenis": "Kucing Alaska",
     "gender": "Jantan / 2 bulan",
     "image": petIcon,
-  }
+  },
+];
+List<Map<String, dynamic>> listTagihan = [
+  {
+    "id": 1,
+    "name": "Bombom - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
+  {
+    "id": 2,
+    "name": "Bombom - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
+  {
+    "id": 3,
+    "name": "Chiyoo - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
+  {
+    "id": 4,
+    "name": "Chiyoo - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
+  {
+    "id": 5,
+    "name": "Bombom - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
+  {
+    "id": 6,
+    "name": "Bombom - Anjing",
+    "kode": "TR2789",
+    "sampai": "27-11-2022",
+    "dengan": "30-11-2022",
+  },
 ];
