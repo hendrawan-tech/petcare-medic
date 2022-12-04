@@ -69,7 +69,7 @@ List<Map<String, dynamic>> listFeatures = [
   {
     "id": 4,
     "label": "Tagihan",
-    "onpress": Routes.billScreen,
+    "onpress": Routes.listInvoiceScreen,
     "icon": dollarIcon,
   },
 ];

@@ -6,8 +6,8 @@ import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/InputWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
-class BillScrenn extends StatelessWidget {
-  const BillScrenn({super.key});
+class ListInvoiceScreen extends StatelessWidget {
+  const ListInvoiceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
