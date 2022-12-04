@@ -7,7 +7,9 @@ import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
+
 import 'package:medic_petcare/Screen/User/DetailUserScreen.dart';
+import 'package:medic_petcare/Screen/User/ListInvoiceScreen.dart';
 import 'package:medic_petcare/Screen/User/UserListScreen.dart';
 
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
@@ -25,6 +27,7 @@ class Routes {
   static const String settingsAccountScreen = 'SettingsAccountScreen';
   static const String userListScreen = 'UserListScreen';
   static const String detailUserScreen = 'DetailUserScreen';
+  static const String listInvoiceScreen = 'ListInvoiceScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -78,6 +81,11 @@ class Routes {
       case detailUserScreen:
         return PageTransition(
           child: const DetailUserScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case listInvoiceScreen:
+        return PageTransition(
+          child: const ListInvoiceScreen(),
           type: PageTransitionType.rightToLeft,
         );
       default:
