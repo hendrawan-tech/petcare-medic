@@ -167,6 +167,7 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
   {
     "id": 2,
@@ -174,6 +175,7 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
   {
     "id": 3,
@@ -181,6 +183,7 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
   {
     "id": 4,
@@ -188,6 +191,7 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
   {
     "id": 5,
@@ -195,6 +199,7 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
   {
     "id": 6,
@@ -202,5 +207,6 @@ List<Map<String, dynamic>> listTagihan = [
     "kode": "TR2789",
     "sampai": "27-11-2022",
     "dengan": "30-11-2022",
+    "onpress": Routes.detailInvoiceScreen,
   },
 ];

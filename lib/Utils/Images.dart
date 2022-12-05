@@ -10,6 +10,7 @@ String notifIcon = 'assets/images/home/notifIcon.png';
 String dogIcon = 'assets/images/home/dogIcon.png';
 String paternImage = 'assets/images/home/paternImage.png';
 String dokterIcon = 'assets/images/icons/dokterIcon.png';
+String circleDollarIcon = 'assets/images/icons/circleDollarIcon.png';
 
 // icon menu
 String homeIcon = 'assets/images/bottomMenu/homeIcon.png';

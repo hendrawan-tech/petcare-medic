@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Screen/User/DetailInvoiceScreen.dart';
 import 'package:medic_petcare/Utils/Static.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/CardTagihan.dart';
@@ -45,8 +46,9 @@ class ListInvoiceScreen extends StatelessWidget {
                   child: CardTagihan(
                     data: listTagihan[index],
                     onPress: () {
-                      print(
-                        listJadwalControl[index],
+                      Navigator.pushNamed(
+                        context,
+                        listTagihan[index]['onpress'],
                       );
                     },
                   ),
