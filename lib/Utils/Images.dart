@@ -9,8 +9,6 @@ String bgHeader = 'assets/images/home/bgHeader.png';
 String notifIcon = 'assets/images/home/notifIcon.png';
 String dogIcon = 'assets/images/home/dogIcon.png';
 String paternImage = 'assets/images/home/paternImage.png';
-String dokterIcon = 'assets/images/icons/dokterIcon.png';
-String circleDollarIcon = 'assets/images/icons/circleDollarIcon.png';
 
 // icon menu
 String homeIcon = 'assets/images/bottomMenu/homeIcon.png';
@@ -30,6 +28,11 @@ String userIcon = 'assets/images/icons/userIcon.png';
 String iconUser = 'assets/images/icons/iconUser.png';
 String pencilIcon = 'assets/images/icons/pencilIcon.png';
 String cellphoneIcon = 'assets/images/icons/cellphoneIcon.png';
+String dokterIcon = 'assets/images/icons/dokterIcon.png';
+String circleDollarIcon = 'assets/images/icons/circleDollarIcon.png';
+String vetIcon = 'assets/images/icons/vetIcon.png';
+String maleIcon = 'assets/images/icons/maleIcon.png';
+String femaleIcon = 'assets/images/icons/femaleIcon.png';
 
 // logo
 String logoWhite = 'assets/images/logo/logoWhite.png';

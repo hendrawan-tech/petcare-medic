@@ -5,6 +5,7 @@ import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Home/HomeScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
+import 'package:medic_petcare/Screen/Registration/MedicalRecordLandingScreen.dart';
 
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
@@ -25,8 +26,8 @@ class BottomNavigationWidget extends StatefulWidget {
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   final List<Widget> _pages = [
     const HomeScreen(),
+    const MedicalRecordLandingScreen(),
     const MedicalRecordScreen(),
-    const AccountLandingScreen(),
     const ListPatientScreen(),
     const AccountLandingScreen(),
   ];
