@@ -6,6 +6,7 @@ import '../Utils/Themes.dart';
 
 class CardDetailUser extends StatelessWidget {
   final Map<String, dynamic> data;
+  
   final bool;
   const CardDetailUser({
     super.key,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medic_petcare/Config/Network.dart';
 import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Routes/Routes.dart';
+import 'package:medic_petcare/Screen/Report/ListReportScreen.dart';
+
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Storage.dart';
 import 'package:medic_petcare/Utils/StorageKey.dart';
@@ -91,7 +93,14 @@ class _AccountLandingScreenState extends State<AccountLandingScreen> {
                   icon: const Icon(
                     Icons.bar_chart_rounded,
                   ),
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ListReportScreen(),
+                      ),
+                    );
+                  },
                 ),
                 MenuItem(
                   label: "Logout",
