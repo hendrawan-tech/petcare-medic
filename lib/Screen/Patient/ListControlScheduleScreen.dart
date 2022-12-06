@@ -6,14 +6,14 @@ import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
-class ControlSceduleScreen extends StatefulWidget {
-  const ControlSceduleScreen({Key? key}) : super(key: key);
+class ListControlSceduleScreen extends StatefulWidget {
+  const ListControlSceduleScreen({Key? key}) : super(key: key);
 
   @override
-  State<ControlSceduleScreen> createState() => _ControlSceduleScreenState();
+  State<ListControlSceduleScreen> createState() => _ControlSceduleScreenState();
 }
 
-class _ControlSceduleScreenState extends State<ControlSceduleScreen> {
+class _ControlSceduleScreenState extends State<ListControlSceduleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

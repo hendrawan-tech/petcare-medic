@@ -6,8 +6,8 @@ import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
-class UserListScreen extends StatelessWidget {
-  const UserListScreen({super.key});
+class ListUserScreen extends StatelessWidget {
+  const ListUserScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
