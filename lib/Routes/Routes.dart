@@ -2,22 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
 import 'package:medic_petcare/Screen/Home/PracticeScheduleLandingScreen.dart';
-
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
-
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
 import 'package:medic_petcare/Screen/Report/ListReportScreen.dart';
-
 import 'package:medic_petcare/Screen/User/DetailInvoiceScreen.dart';
-
 import 'package:medic_petcare/Screen/User/DetailUserScreen.dart';
-
 import 'package:medic_petcare/Screen/User/ListInvoiceScreen.dart';
 import 'package:medic_petcare/Screen/User/ListUserScreen.dart';
-
 import 'package:medic_petcare/Widgets/BottomNavigationWidget.dart';
 import 'package:page_transition/page_transition.dart';
 

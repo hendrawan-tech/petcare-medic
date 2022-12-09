@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Config/Network.dart';
+import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/ButtonWidget.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/InputWidget.dart';
-import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:provider/provider.dart';
 
 class SettingsAccountScreen extends StatefulWidget {
   const SettingsAccountScreen({super.key});
@@ -19,155 +21,162 @@ class _SettingsAccountState extends State<SettingsAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: HeaderWidget(
-        title: "Settings Account",
+      appBar: const HeaderWidget(
+        title: "Pengaturan Akun",
       ),
-      body: Column(
-        children: [
-          Center(
-            heightFactor: 1.5,
-            child: Container(
-              height: 100,
-              width: 100,
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(
-                  100,
+      body: Consumer<UserProvider>(
+        builder: (context, value, child) {
+          var user = value.getUserData;
+          var meta = user['user_metas'][0];
+          return Column(
+            children: [
+              Center(
+                heightFactor: 1.5,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: borderColor,
+                      width: 2,
+                    ),
+                  ),
+                  child: ImageWidget(
+                    image: "${Network().photoUrl}${user['avatar']}",
+                    height: 100,
+                  ),
                 ),
               ),
-              child: ImageWidget(
-                image:
-                    "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-                width: 100,
+              const SizedBox(
+                height: 24,
               ),
-            ),
-          ),
-          SizedBox(
-            height: 25,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-              vertical: 14,
-            ),
-            child: Row(
-              children: [
-                ImageWidget(
-                  image: iconUser,
-                  height: 24,
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
+                  vertical: 14,
                 ),
-                SizedBox(
-                  width: 14,
+                child: Row(
+                  children: [
+                    ImageWidget(
+                      image: iconUser,
+                      height: 24,
+                    ),
+                    const SizedBox(
+                      width: 14,
+                    ),
+                    Expanded(
+                      child: InputWidget(
+                        title: "Nama",
+                        hintText: user['name'],
+                        enable: false,
+                      ),
+                    ),
+                    ImageWidget(
+                      image: pencilIcon,
+                      height: 14,
+                      width: 14,
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: InputWidget(
-                    title: "Nama",
-                    hintText: "Annisa Siti",
-                    enable: false,
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
+                  vertical: 14,
                 ),
-                ImageWidget(
-                  image: pencilIcon,
-                  height: 20,
-                  width: 20,
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.mail_outline,
+                      size: 24,
+                    ),
+                    const SizedBox(
+                      width: 14,
+                    ),
+                    Expanded(
+                      child: InputWidget(
+                        title: "E-mail",
+                        hintText: user['email'],
+                        enable: false,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-              vertical: 14,
-            ),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.mail_outline,
-                  size: 24,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
+                  vertical: 14,
                 ),
-                SizedBox(
-                  width: 14,
+                child: Row(
+                  children: [
+                    ImageWidget(
+                      image: cellphoneIcon,
+                      height: 24,
+                    ),
+                    const SizedBox(
+                      width: 14,
+                    ),
+                    Expanded(
+                      child: InputWidget(
+                        title: "Nomor Telepon",
+                        hintText: user['phone_number'],
+                        enable: false,
+                      ),
+                    ),
+                    ImageWidget(
+                      image: pencilIcon,
+                      height: 14,
+                      width: 14,
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: InputWidget(
-                    title: "E-mail",
-                    hintText: "Annisa@gmail.com",
-                    enable: false,
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
+                  vertical: 14,
                 ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-              vertical: 14,
-            ),
-            child: Row(
-              children: [
-                ImageWidget(
-                  image: cellphoneIcon,
-                  height: 24,
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.info_outline_rounded,
+                      size: 24,
+                    ),
+                    const SizedBox(
+                      width: 14,
+                    ),
+                    Expanded(
+                      child: InputWidget(
+                        title: "Nomor STR",
+                        hintText: meta['str_number'],
+                        enable: false,
+                      ),
+                    ),
+                    ImageWidget(
+                      image: pencilIcon,
+                      height: 14,
+                      width: 14,
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: 14,
+              ),
+              const Spacer(),
+              Container(
+                margin: const EdgeInsets.only(
+                  bottom: 32,
                 ),
-                Expanded(
-                  child: InputWidget(
-                    title: "Nomor Telepon",
-                    hintText: "08293293220",
-                    enable: false,
-                  ),
+                width: 214,
+                child: ButtonWidget(
+                  title: "Simpan",
+                  onPressed: () {},
                 ),
-                ImageWidget(
-                  image: pencilIcon,
-                  height: 20,
-                  width: 20,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-              vertical: 14,
-            ),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.info_outline_rounded,
-                  size: 24,
-                ),
-                SizedBox(
-                  width: 14,
-                ),
-                Expanded(
-                  child: InputWidget(
-                    title: "Nomor STR",
-                    hintText: "88422021",
-                    enable: false,
-                  ),
-                ),
-                ImageWidget(
-                  image: pencilIcon,
-                  height: 20,
-                  width: 20,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 110,
-          ),
-          SizedBox(
-            width: 214,
-            child: ButtonWidget(
-              title: "Simpan",
-              onPressed: () {},
-            ),
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
