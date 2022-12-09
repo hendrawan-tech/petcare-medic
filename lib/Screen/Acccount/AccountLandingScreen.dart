@@ -275,17 +275,25 @@ class _HeaderProfileState extends State<HeaderProfile> {
                   ),
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.all(
-                  8,
-                ),
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(
-                  Icons.settings,
-                  size: 18,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.settingsAccountScreen,
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(
+                    8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.settings,
+                    size: 18,
+                  ),
                 ),
               ),
             ],
