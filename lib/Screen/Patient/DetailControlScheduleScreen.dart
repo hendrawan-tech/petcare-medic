@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/BadgeWidget.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
@@ -19,10 +20,16 @@ class DetailControlScheduleScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  height: 220,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: gradientColor3),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  child: Container(
+                    height: 280,
+                    decoration: BoxDecoration(
+                      // gradient: LinearGradient(colors: gradientColor3),
+                      color: backgroundListColor,
+                    ),
                   ),
                 ),
                 Positioned.fill(
@@ -41,8 +48,7 @@ class DetailControlScheduleScreen extends StatelessWidget {
                             ),
                           ),
                           child: ImageWidget(
-                            image:
-                                "https://images.unsplash.com/photo-1669307412139-1c95394a94c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                            image: petIcon,
                             width: 100,
                           ),
                         ),
@@ -51,7 +57,7 @@ class DetailControlScheduleScreen extends StatelessWidget {
                         ),
                         TextWidget(
                           label: "Chiyoo",
-                          color: whiteColor,
+                          // color: whiteColor,
                           weight: "bold",
                           type: "s1",
                         ),
@@ -60,8 +66,90 @@ class DetailControlScheduleScreen extends StatelessWidget {
                         ),
                         TextWidget(
                           label: "Kucing Alaska",
-                          color: whiteColor,
+                          // color: whiteColor,
                           type: "b2",
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 32,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.cyan.shade400,
+                                  borderRadius: BorderRadius.circular(
+                                    8,
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    ImageWidget(
+                                      image: iconUser,
+                                      height: 24,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 5,
+                                      ),
+                                      child: TextWidget(
+                                        label: "Slamet Nurdin",
+                                        type: "b2",
+                                        color: whiteColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: blackColor,
+                                    width: 1,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 60,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: secondaryColor2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    8,
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    ImageWidget(
+                                      image: cellphoneIcon,
+                                      height: 24,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 5,
+                                      ),
+                                      child: TextWidget(
+                                        label: "082233120117",
+                                        type: "b2",
+                                        color: whiteColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

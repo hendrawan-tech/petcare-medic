@@ -48,8 +48,9 @@ class _ControlSceduleScreenState extends State<ListControlSceduleScreen> {
                   child: CardControlScheduleWidget(
                     data: listJadwalControl[index],
                     onPress: () {
-                      print(
-                        listJadwalControl[index],
+                      Navigator.pushNamed(
+                        context,
+                        listJadwalControl[index]['onpress'],
                       );
                     },
                   ),
@@ -81,8 +82,9 @@ class _ControlSceduleScreenState extends State<ListControlSceduleScreen> {
                   child: CardControlScheduleWidget(
                     data: listJadwalControl[index],
                     onPress: () {
-                      print(
-                        listJadwalControl[index],
+                      Navigator.pushNamed(
+                        context,
+                        listJadwalControl[index]['onpress'],
                       );
                     },
                   ),
