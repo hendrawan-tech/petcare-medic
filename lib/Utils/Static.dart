@@ -1,4 +1,9 @@
 import 'package:medic_petcare/Routes/Routes.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Care/StepCareScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/ControleSchedule/StepControlScheduleScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepAddPrescriptionScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepPrescriptionScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Review/StepReviewScreen.dart';
 import 'package:medic_petcare/Utils/Images.dart';
 
 List<Map<String, dynamic>> listJadwalControl = [
@@ -313,5 +318,89 @@ List<Map<String, dynamic>> listMedicalRecord = [
     "tanggal": "27-11-2022",
     "image": maleIcon,
     "rawat": "Rawat jalan",
+  },
+];
+
+List<Map<String, dynamic>> categoryMedic = [
+  {
+    "name": "Rawat Inap",
+    "icon": treatmentIcon,
+  },
+  {
+    "name": "Rawat Jalan",
+    "icon": medisIcon,
+  },
+  {
+    "name": "Pulang",
+    "icon": backpackIcon,
+  }
+];
+
+List<Map<String, dynamic>> categoryRawatInap = [
+  {
+    "label": "Perawatan",
+    "icon": solidarityIcon,
+    "activeIcon": solidarityActiveIcon,
+    "screen": const StepCareScreen(),
+  },
+  {
+    "label": "Resep Obat",
+    "icon": medicalPreseptionIcon,
+    "activeIcon": medicalPreseptionActiveIcon,
+    "screen": const StepPrescriptionScreen(),
+  },
+  {
+    "label": "Rincian Tagihan",
+    "icon": fileIcon,
+    "activeIcon": fileActiveIcon,
+    "screen": const StepReviewScreen(),
+  },
+];
+
+List<Map<String, dynamic>> categoryRawatJalan = [
+  {
+    "label": "Jadwal Kontrol",
+    "icon": calendarMedicIcon,
+    "activeIcon": calendarMedicActiveIcon,
+    "screen": const StepControlScheduleScreen(),
+  },
+  {
+    "label": "Tambah Obat",
+    "icon": drugIcon,
+    "activeIcon": drugActiveIcon,
+    "screen": const StepAddPrescriptionScreen(),
+  },
+  {
+    "label": "Resep Obat",
+    "icon": medicalPreseptionIcon,
+    "activeIcon": medicalPreseptionActiveIcon,
+    "screen": const StepPrescriptionScreen(),
+  },
+  {
+    "label": "Rincian Tagihan",
+    "icon": fileIcon,
+    "activeIcon": fileActiveIcon,
+    "screen": const StepReviewScreen(),
+  },
+];
+
+List<Map<String, dynamic>> categoryPulang = [
+  {
+    "label": "Tambah Obat",
+    "icon": drugIcon,
+    "activeIcon": drugActiveIcon,
+    "screen": const StepAddPrescriptionScreen(),
+  },
+  {
+    "label": "Resep Obat",
+    "icon": medicalPreseptionIcon,
+    "activeIcon": medicalPreseptionActiveIcon,
+    "screen": const StepPrescriptionScreen(),
+  },
+  {
+    "label": "Rincian Tagihan",
+    "icon": fileIcon,
+    "activeIcon": fileActiveIcon,
+    "screen": const StepReviewScreen(),
   },
 ];

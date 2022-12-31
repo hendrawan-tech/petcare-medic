@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Routes/Routes.dart';
@@ -41,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacementNamed(
           context,
           Routes.homeScreen,
-        );
+        ); 
       } else {
         Navigator.pushReplacementNamed(
           context,

@@ -33,6 +33,7 @@ String circleDollarIcon = 'assets/images/icons/circleDollarIcon.png';
 String vetIcon = 'assets/images/icons/vetIcon.png';
 String maleIcon = 'assets/images/icons/maleIcon.png';
 String femaleIcon = 'assets/images/icons/femaleIcon.png';
+String addImageIcon = 'assets/images/icons/addImageIcon.png';
 
 // logo
 String logoWhite = 'assets/images/logo/logoWhite.png';
@@ -41,3 +42,22 @@ String logoBlack = 'assets/images/logo/logoBlack.png';
 // background
 String backgroundLogin = 'assets/images/background/backgroundLogin.png';
 String backgroundProfile = 'assets/images/background/backgroundProfile.png';
+
+// icon categories
+String backpackIcon = 'assets/images/icons/backpackIcon.png';
+String treatmentIcon = 'assets/images/icons/treatmentIcon.png';
+String medisIcon = 'assets/images/icons/medisIcon.png';
+String arrowIcon = 'assets/images/icons/arrowIcon.png';
+
+// medical record
+String calendarMedicIcon = 'assets/images/medic/calendarIcon.png';
+String calendarMedicActiveIcon = 'assets/images/medic/calendarActiveIcon.png';
+String drugIcon = 'assets/images/medic/drugIcon.png';
+String drugActiveIcon = 'assets/images/medic/drugActiveIcon.png';
+String fileIcon = 'assets/images/medic/fileIcon.png';
+String fileActiveIcon = 'assets/images/medic/fileActiveIcon.png';
+String medicalPreseptionIcon = 'assets/images/medic/medicalPreseptionIcon.png';
+String medicalPreseptionActiveIcon =
+    'assets/images/medic/medicalPreseptionActiveIcon.png';
+String solidarityIcon = 'assets/images/medic/solidarityIcon.png';
+String solidarityActiveIcon = 'assets/images/medic/solidarityActiveIcon.png';

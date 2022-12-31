@@ -1,151 +1,211 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:medic_petcare/Provider/PracticeScheduleProvider.dart';
+import 'package:medic_petcare/Provider/UserProvider.dart';
 import 'package:medic_petcare/Utils/Images.dart';
-import 'package:medic_petcare/Utils/Static.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
-import 'package:medic_petcare/Widgets/BadgeWidget.dart';
 import 'package:medic_petcare/Widgets/CardPracticeSchedule.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
+import 'package:medic_petcare/Widgets/LoadingWidget.dart';
+import 'package:medic_petcare/Widgets/ShimmerWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
+import 'package:provider/provider.dart';
 
-class PracticeScheduleLandingScreen extends StatelessWidget {
+class PracticeScheduleLandingScreen extends StatefulWidget {
   const PracticeScheduleLandingScreen({super.key});
 
   @override
+  State<PracticeScheduleLandingScreen> createState() =>
+      _PracticeScheduleLandingScreenState();
+}
+
+class _PracticeScheduleLandingScreenState
+    extends State<PracticeScheduleLandingScreen> {
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
+  getData() async {
+    Provider.of<PracticeScheduleProvider>(
+      context,
+      listen: false,
+    ).getShcedule();
+  }
+
+  List<Color> colors = [
+    Colors.green,
+    Colors.purple,
+    Colors.blueAccent,
+    Colors.pinkAccent,
+    Colors.amber,
+  ];
+
+  Random random = Random();
+
+  @override
   Widget build(BuildContext context) {
-    var d = DateTime.now();
-    var weekDay = d.weekday;
-    var firstDayOfWeek = d.subtract(Duration(days: weekDay));
-    var lastDayOfWeek = d.subtract(Duration(days: weekDay + 6));
-    print(firstDayOfWeek);
-    print(lastDayOfWeek);
     return Scaffold(
-      appBar: HeaderWidget(title: "Jadwal Praktik"),
+      appBar: const HeaderWidget(
+        title: "Jadwal Praktik",
+      ),
+      backgroundColor: whiteColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              // height: 260,
-              color: backgroundColor,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 5,
-                      left: 24,
-                    ),
-                    child: ImageWidget(
-                      image: dokterIcon,
-                      height: 124,
-                    ),
+            Consumer<UserProvider>(
+              builder: (context, value, child) {
+                var user = value.getUserData;
+                return Container(
+                  color: backgroundColor,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultMargin,
+                    vertical: 24,
                   ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 42,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextWidget(
-                          label: "Hi, Drh.Annisa !",
-                          type: "s1",
-                          weight: "bold",
-                          color: fontPrimaryColor,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 8,
+                          right: 14,
                         ),
-                        TextWidget(
-                          label: "Cek jadwal praktikmu\nhari ini yuk!",
-                          type: "b2",
+                        child: ImageWidget(
+                          image: dokterIcon,
+                          height: 124,
                         ),
-                      ],
-                    ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextWidget(
+                              label: "Hi, ${user['name']}",
+                              type: "s1",
+                              weight: "bold",
+                              color: fontPrimaryColor,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            TextWidget(
+                              label: "Cek jadwal praktikmu\nhari ini yuk!",
+                              type: "b2",
+                              color: fontGreyColor2,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  // BadgeWidget(
-                  //   label: "Senin, 14 November 2022",
-                  // ),
-                ],
-              ),
+                );
+              },
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            Container(
-              height: 590,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: borderColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(32),
-                  topRight: Radius.circular(32),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                      top: 18,
-                    ),
-                    child: TextWidget(
-                      label: "Jadwal Hari Ini",
-                      weight: "medium",
-                    ),
+            Consumer<PracticeScheduleProvider>(
+              builder: (context, value, child) {
+                var schedule = value.getSchedule;
+                var nowSchedule = value.getNowSchedule;
+                return Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultMargin,
+                    vertical: 24,
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  ListView.builder(
-                    itemCount: 1,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.all(
-                      defaultMargin,
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(32),
+                      topRight: Radius.circular(32),
                     ),
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          bottom: defaultMargin,
-                        ),
-                        child: CardPracticeScheduleWidget(
-                          isi: listJadwalPraktik[index],
-                        ),
-                      );
-                    },
+                    boxShadow: [
+                      BoxShadow(
+                        color: borderColor,
+                        offset: const Offset(0, -1), // Shadow position
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16,
-                    ),
-                    child: TextWidget(
-                      label: "Jadwal Yang Akan Datang",
-                      weight: "medium",
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      value.isLoading
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const ShimmeerWidget(
+                                  width: 170,
+                                  height: 20,
+                                ),
+                                const LoadingPracticeSchedule(),
+                                SizedBox(
+                                  height: defaultMargin,
+                                ),
+                                const ShimmeerWidget(
+                                  width: 200,
+                                  height: 20,
+                                ),
+                                ListView.builder(
+                                  itemCount: 6,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    return const LoadingPracticeSchedule();
+                                  },
+                                ),
+                              ],
+                            )
+                          : nowSchedule.isNotEmpty
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextWidget(
+                                      label: "Jadwal Hari Ini",
+                                      type: 's3',
+                                      weight: "bold",
+                                      color: fontPrimaryColor,
+                                    ),
+                                    CardPracticeScheduleWidget(
+                                      data: nowSchedule,
+                                      color:
+                                          colors[random.nextInt(colors.length)],
+                                    ),
+                                    SizedBox(
+                                      height: defaultMargin,
+                                    ),
+                                  ],
+                                )
+                              : Container(),
+                      schedule.isNotEmpty
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                TextWidget(
+                                  label: "Jadwal Yang Akan Datang",
+                                  type: 's3',
+                                  weight: "bold",
+                                  color: fontPrimaryColor,
+                                ),
+                                ListView.builder(
+                                  itemCount: schedule.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    return CardPracticeScheduleWidget(
+                                      data: schedule[index],
+                                      color:
+                                          colors[random.nextInt(colors.length)],
+                                    );
+                                  },
+                                ),
+                              ],
+                            )
+                          : Container(),
+                    ],
                   ),
-                  ListView.builder(
-                    itemCount: listJadwalPraktik.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.all(
-                      defaultMargin,
-                    ),
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          bottom: defaultMargin,
-                        ),
-                        child: CardPracticeScheduleWidget(
-                          isi: listJadwalPraktik[index],
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+                );
+              },
             ),
           ],
         ),

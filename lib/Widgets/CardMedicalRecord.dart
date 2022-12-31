@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
+import 'package:medic_petcare/Utils/Utils.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
@@ -19,7 +20,7 @@ class CardMedialRecord extends StatelessWidget {
           right: 16,
           top: 18,
           child: ImageWidget(
-            image: data["image"],
+            image: data["gender"] == 'Jantan' ? maleIcon : femaleIcon,
             height: 20,
           ),
         ),
@@ -27,53 +28,45 @@ class CardMedialRecord extends StatelessWidget {
           right: 16,
           bottom: 16,
           child: TextWidget(
-            label: data["tanggal"],
+            label: parseMounth(
+              data['medical_record']['created_at'],
+            ),
             weight: "medium",
             type: "l1",
           ),
         ),
         Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16,
-          ),
-          height: 85,
           width: double.infinity,
           decoration: BoxDecoration(
-            border: Border.all(
-              color: borderColor,
+            border: Border(
+              top: BorderSide(
+                color: borderColor,
+              ),
             ),
+          ),
+          padding: EdgeInsets.all(
+            defaultMargin,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 4,
-              ),
               TextWidget(
-                label: data["rawat"],
+                label: data["medical_record"]['inpatients']['type'],
                 type: "b2",
                 color: primaryColor,
               ),
-              SizedBox(
-                height: 4,
-              ),
-              Row(
-                children: [
-                  TextWidget(
-                    label: data["name"],
-                    weight: "medium",
-                  ),
-                  TextWidget(
-                    label: data["jenis"],
-                    weight: "medium",
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 4,
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                ),
+                child: TextWidget(
+                  label:
+                      "${data["patient"]['name']} - ${data['patient']["species_patient"]['name']}",
+                  weight: "medium",
+                ),
               ),
               TextWidget(
-                label: data["penyakit"],
+                label: data["medical_record"]['diagnosis'],
                 type: "b2",
               ),
             ],

@@ -4,9 +4,12 @@ import 'package:medic_petcare/Utils/Storage.dart';
 import 'package:medic_petcare/Utils/StorageKey.dart';
 
 class Network {
-  final String baseUrl = "https://bontang-petcare.ws-tif.com/api/";
-  final String photoUrl = "https://bontang-petcare.ws-tif.com/upload/";
-  Map<String, String> headers = {'content-type': 'application/json'};
+  final String baseUrl = "https://petcare.berkahistiqomahfarm.com/api/";
+  final String photoUrl = "https://petcare.berkahistiqomahfarm.com/upload/";
+  Map<String, String> headers = {
+    'content-type': 'application/json',
+    'Accept': 'application/json',
+  };
 
   Future get({
     required String url,
@@ -47,11 +50,14 @@ class Network {
   Future<void> post({
     required String url,
     Map<String, dynamic>? body,
+    List? list,
     Map<String, String>? header,
     bool useToken = true,
+    bool isList = false,
   }) async {
     Map<String, String> sendHeader = {};
-    Map<String, dynamic> sendBody = {};
+    var sendBody;
+    isList ? sendBody = [] : sendBody = {};
     String sendUrl = baseUrl + url;
     if (header != null) {
       for (final mapEntry in header.entries) {
@@ -62,10 +68,14 @@ class Network {
       headers.addAll(sendHeader);
     }
 
-    if (body != null) {
-      for (final mapEntry in body.entries) {
-        final key = mapEntry.key, value = mapEntry.value;
-        sendBody[key] = value;
+    if (isList) {
+      sendBody = list!;
+    } else {
+      if (body != null) {
+        for (final mapEntry in body.entries) {
+          final key = mapEntry.key, value = mapEntry.value;
+          sendBody[key] = value;
+        }
       }
     }
 

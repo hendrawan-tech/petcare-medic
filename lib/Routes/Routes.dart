@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
+import 'package:medic_petcare/Screen/Article/ArticleListScreen.dart';
 import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
 import 'package:medic_petcare/Screen/Home/PracticeScheduleLandingScreen.dart';
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Care/FormAddCareScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordFormScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepAddPrescriptionScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepListDrugScreen.dart';
 import 'package:medic_petcare/Screen/Patient/DetailControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
@@ -32,6 +38,12 @@ class Routes {
   static const String detailInvoiceScreen = 'DetailInvoiceScreen';
   static const String listPatientScreen = 'ListPatientScreen';
   static const String listReportScreen = 'ListReportScreen';
+  static const String articleListScreen = 'ArticleListScreen';
+  static const String medicalRecordFormScreen = 'medicalRecordFormScreen';
+  static const String medicalRecordScreen = 'medicalRecordScreen';
+  static const String formAddCareScreen = 'formAddCareScreen';
+  static const String addPrescriptionScreen = 'AddPrescriptionScreen';
+  static const String stepListDrugScreen = 'stepListDrugScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -105,6 +117,36 @@ class Routes {
       case listReportScreen:
         return PageTransition(
           child: const ListReportScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case articleListScreen:
+        return PageTransition(
+          child: const ArticleListScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case medicalRecordFormScreen:
+        return PageTransition(
+          child: const MedicalRecordFormScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case medicalRecordScreen:
+        return PageTransition(
+          child: const MedicalRecordScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case formAddCareScreen:
+        return PageTransition(
+          child: const FormAddCareScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case addPrescriptionScreen:
+        return PageTransition(
+          child: const StepAddPrescriptionScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case stepListDrugScreen:
+        return PageTransition(
+          child: const StepListDrugScreen(),
           type: PageTransitionType.rightToLeft,
         );
       default:

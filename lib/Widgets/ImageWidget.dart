@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medic_petcare/Widgets/ShimmerWidget.dart';
 
 class ImageWidget extends StatelessWidget {
   final String image;
@@ -26,7 +27,7 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = width ?? 0;
+    double w = width ?? MediaQuery.of(context).size.width;
     double h = height ?? 0;
     double check = w < h ? w : h;
 
@@ -51,11 +52,11 @@ class ImageWidget extends StatelessWidget {
                         width: width,
                         height: height,
                         imageUrl: image,
-                        placeholder: (context, url) => Center(
+                        placeholder: (context, url) => const Center(
                           child: SizedBox(
-                            width: check < 32 ? check : 32,
-                            height: check < 32 ? check : 32,
-                            child: const CircularProgressIndicator(),
+                            width: double.infinity,
+                            height: double.maxFinite,
+                            child: ShimmeerWidget(),
                           ),
                         ),
                         errorWidget: (context, url, error) =>

@@ -133,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
+        backgroundColor: whiteColor,
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -199,6 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: "Masukkan Alamat Email",
                       controller: emailController,
                       errText: errEmail,
+                      type: TextInputType.emailAddress,
                       onChanged: onChangeEmail,
                     ),
                     InputWidget(

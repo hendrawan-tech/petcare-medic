@@ -1,71 +1,59 @@
 import "package:flutter/material.dart";
+import 'package:medic_petcare/Utils/Themes.dart';
 
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 
 class CardPracticeScheduleWidget extends StatelessWidget {
-  final Map<String, dynamic> isi;
+  final Map data;
+  final Color color;
 
   const CardPracticeScheduleWidget({
     super.key,
-    required this.isi,
+    required this.data,
+    required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 96,
-      // width: double.infinity,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(
+        horizontal: defaultMargin,
+        vertical: 12,
+      ),
+      margin: EdgeInsets.only(
+        top: defaultMargin,
+      ),
       decoration: BoxDecoration(
-        color: Color(0xffE8F9F2),
+        color: color.withOpacity(.2),
         borderRadius: BorderRadius.circular(
-          8,
+          12,
         ),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 8,
-              top: 20,
-            ),
-            child: Column(
-              children: [
-                TextWidget(
-                  label: isi["hari"],
-                  weight: "bold",
-                  type: "s3",
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                TextWidget(
-                  label: isi["date"],
-                ),
-              ],
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextWidget(
+                label: "${data['start_time']} - ${data['end_time']} WIB",
+                color: fontSecondaryColor,
+                type: 'l1',
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              TextWidget(
+                label: data['day'],
+                color: fontPrimaryColor,
+                weight: 'bold',
+              ),
+            ],
           ),
-          SizedBox(
-            height: 12,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 31,
-              top: 14,
-            ),
-            child: Column(
-              children: [
-                TextWidget(
-                  label: "Keterangan Jadwal :",
-                  type: "s3",
-                  weight: "bold",
-                ),
-                TextWidget(
-                  label: isi["description"],
-                  type: "b2",
-                ),
-              ],
-            ),
+          Icon(
+            Icons.calendar_today_rounded,
+            color: color,
           ),
         ],
       ),

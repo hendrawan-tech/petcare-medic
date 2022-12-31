@@ -15,7 +15,7 @@ class InputWidget extends StatefulWidget {
   final void Function(String)? onChanged;
   final String border, customTypeText;
   final double? inputHeight, inputWidth;
-  final int? maxChar;
+  final int? maxChar, minLines, maxLines;
   final EdgeInsets? parentPadding, inputPadding, titleMargin;
 
   const InputWidget({
@@ -37,11 +37,13 @@ class InputWidget extends StatefulWidget {
     this.border = 'all',
     this.inputWidth,
     this.inputHeight = 50,
+    this.minLines,
+    this.maxLines,
     this.inputPadding,
     this.parentPadding,
     this.showShadow = true,
     this.titleMargin,
-    this.maxChar = 50,
+    this.maxChar = 255,
     this.colorTextError,
     this.customTypeText = 'b1',
     this.specialRules = '',
@@ -170,8 +172,9 @@ class _InputWidgetState extends State<InputWidget> {
                           ),
                       child: TextWidget(
                         label: widget.title,
-                        type: 'l1',
-                        color: fontSecondaryColor,
+                        type: 'b2',
+                        weight: 'medium',
+                        color: fontPrimaryColor,
                       ),
                     ),
               Container(
@@ -183,7 +186,7 @@ class _InputWidgetState extends State<InputWidget> {
                       vertical: 0,
                     ),
                 margin: EdgeInsets.only(
-                  top: widget.title == 'hidden' ? 0 : 4,
+                  top: widget.title == 'hidden' ? 0 : 8,
                 ),
                 decoration: BoxDecoration(
                   color: widget.readonly == true
@@ -208,6 +211,8 @@ class _InputWidgetState extends State<InputWidget> {
                 ),
                 child: IntrinsicWidth(
                   child: TextFormField(
+                    minLines: widget.minLines,
+                    maxLines: widget.obscure ? 1 : widget.maxLines,
                     focusNode: _focus,
                     textAlignVertical: TextAlignVertical.center,
                     obscureText: widget.obscure ? obscure : widget.obscure,

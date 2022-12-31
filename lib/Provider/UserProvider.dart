@@ -14,6 +14,7 @@ class UserProvider with ChangeNotifier {
       var response = await EndPoint.urlLogin(
         body: body,
       );
+      print(response);
       if (response['meta']['code'] == 200) {
         Storage.save(tokenStorageKey, response['data']['token']);
         setUserData = response['data']['user'];

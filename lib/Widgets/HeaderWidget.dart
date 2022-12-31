@@ -77,7 +77,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: customLeadingIconColor ?? fontPrimaryColor,
+            color: customLeadingIconColor ?? primaryColor,
           ),
           onPressed: () {
             if (customLeftAction != null) {

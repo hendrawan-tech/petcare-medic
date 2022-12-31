@@ -5,7 +5,7 @@ import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Home/HomeScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
-import 'package:medic_petcare/Screen/Registration/MedicalRecordLandingScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordLandingScreen.dart';
 
 import 'package:medic_petcare/Utils/Images.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
