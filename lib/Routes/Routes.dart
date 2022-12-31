@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 import 'package:medic_petcare/Screen/Article/ArticleListScreen.dart';
 import 'package:medic_petcare/Screen/Auth/LoginScreen.dart';
+import 'package:medic_petcare/Screen/Home/InvoiceDetailScreen.dart';
 import 'package:medic_petcare/Screen/Home/PracticeScheduleLandingScreen.dart';
 import 'package:medic_petcare/Screen/Home/SettingsAccountScreen.dart';
 import 'package:medic_petcare/Screen/Auth/SplashScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/Care/FormAddCareScreen.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/ControleSchedule/StepAddControlSchedule.dart';
+import 'package:medic_petcare/Screen/MedicalRecord/ControleSchedule/StepControlScheduleScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordFormScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepAddPrescriptionScreen.dart';
@@ -44,6 +47,7 @@ class Routes {
   static const String formAddCareScreen = 'formAddCareScreen';
   static const String addPrescriptionScreen = 'AddPrescriptionScreen';
   static const String stepListDrugScreen = 'stepListDrugScreen';
+  static const String stepAddControlSchedule = 'stepAddControlSchedule';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -106,7 +110,7 @@ class Routes {
         );
       case detailInvoiceScreen:
         return PageTransition(
-          child: const DetailInvoiceScreen(),
+          child: const InvoiceDetailScreen(),
           type: PageTransitionType.rightToLeft,
         );
       case listPatientScreen:
@@ -147,6 +151,11 @@ class Routes {
       case stepListDrugScreen:
         return PageTransition(
           child: const StepListDrugScreen(),
+          type: PageTransitionType.rightToLeft,
+        );
+      case stepAddControlSchedule:
+        return PageTransition(
+          child: const StepAddControlSchedule(),
           type: PageTransitionType.rightToLeft,
         );
       default:

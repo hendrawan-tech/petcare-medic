@@ -81,7 +81,7 @@ class _StepCareScreenState extends State<StepCareScreen> {
               ),
               Consumer<MedicalRecordProvider>(
                 builder: (context, value, child) {
-                  return value.isLoading
+                  return value.isLoadingTreatment
                       ? CircleLoadingWidget()
                       : value.getTreatment.isEmpty
                           ? const EmptyWidget(text: "Tidak ada data Perawatan")

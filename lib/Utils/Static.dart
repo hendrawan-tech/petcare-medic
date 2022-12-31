@@ -360,15 +360,9 @@ List<Map<String, dynamic>> categoryRawatInap = [
 List<Map<String, dynamic>> categoryRawatJalan = [
   {
     "label": "Jadwal Kontrol",
-    "icon": calendarMedicIcon,
-    "activeIcon": calendarMedicActiveIcon,
+    "icon": calendarMedicActiveIcon,
+    "activeIcon": calendarMedicIcon,
     "screen": const StepControlScheduleScreen(),
-  },
-  {
-    "label": "Tambah Obat",
-    "icon": drugIcon,
-    "activeIcon": drugActiveIcon,
-    "screen": const StepAddPrescriptionScreen(),
   },
   {
     "label": "Resep Obat",
@@ -385,12 +379,6 @@ List<Map<String, dynamic>> categoryRawatJalan = [
 ];
 
 List<Map<String, dynamic>> categoryPulang = [
-  {
-    "label": "Tambah Obat",
-    "icon": drugIcon,
-    "activeIcon": drugActiveIcon,
-    "screen": const StepAddPrescriptionScreen(),
-  },
   {
     "label": "Resep Obat",
     "icon": medicalPreseptionIcon,

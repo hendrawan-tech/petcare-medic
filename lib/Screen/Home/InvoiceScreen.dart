@@ -9,34 +9,19 @@ import 'package:medic_petcare/Widgets/InputWidget.dart';
 import 'package:medic_petcare/Widgets/LoadingWidget.dart';
 import 'package:provider/provider.dart';
 
-class MedicalRecordLandingScreen extends StatefulWidget {
-  const MedicalRecordLandingScreen({super.key});
+class InvoiceScreen extends StatefulWidget {
+  const InvoiceScreen({Key? key}) : super(key: key);
 
   @override
-  State<MedicalRecordLandingScreen> createState() =>
-      _MedicalRecordLandingScreenState();
+  State<InvoiceScreen> createState() => _InvoiceScreenState();
 }
 
-class _MedicalRecordLandingScreenState
-    extends State<MedicalRecordLandingScreen> {
-  @override
-  void initState() {
-    getData();
-    super.initState();
-  }
-
-  getData() {
-    Provider.of<MedicalRecordProvider>(
-      context,
-      listen: false,
-    ).listMedicalRecord();
-  }
-
+class _InvoiceScreenState extends State<InvoiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HeaderWidget(
-        title: "Perawatan",
+        title: "Daftar Tagihan",
       ),
       backgroundColor: whiteColor,
       body: SingleChildScrollView(
@@ -49,7 +34,7 @@ class _MedicalRecordLandingScreenState
               ),
               child: InputWidget(
                 title: "hidden",
-                hintText: "Cari rekam medis . . .",
+                hintText: "Cari tagihan . . .",
                 iconLeft: Icons.search_rounded,
               ),
             ),
@@ -57,12 +42,12 @@ class _MedicalRecordLandingScreenState
               builder: (context, value, child) {
                 return value.isLoadingMedic
                     ? CircleLoadingWidget()
-                    : value.getMedicalRecord.isEmpty
+                    : value.getMedicalRecordHistory.isEmpty
                         ? EmptyWidget(
-                            text: "Tidak ada data Perawatan",
+                            text: "Tidak ada data Tagihan",
                           )
                         : ListView.builder(
-                            itemCount: value.getMedicalRecord.length,
+                            itemCount: value.getMedicalRecordHistory.length,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
@@ -72,7 +57,8 @@ class _MedicalRecordLandingScreenState
                                     context,
                                     listen: false,
                                   ).setIdInvoice(
-                                    idInvoice: value.getMedicalRecord[index]
+                                    idInvoice: value
+                                        .getMedicalRecordHistory[index]
                                             ['medical_record']['inpatients']
                                             ['invoice']['id']
                                         .toString(),
@@ -81,16 +67,16 @@ class _MedicalRecordLandingScreenState
                                     context,
                                     listen: false,
                                   ).itemMedicalRecord(
-                                    data: value.getMedicalRecord[index]
+                                    data: value.getMedicalRecordHistory[index]
                                         ['medical_record']['inpatients'],
                                   );
                                   Navigator.pushNamed(
                                     context,
-                                    Routes.medicalRecordScreen,
+                                    Routes.detailInvoiceScreen,
                                   );
                                 },
                                 child: CardMedialRecord(
-                                  data: value.getMedicalRecord[index],
+                                  data: value.getMedicalRecordHistory[index],
                                 ),
                               );
                             },

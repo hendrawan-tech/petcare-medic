@@ -85,6 +85,15 @@ class EndPoint {
     );
   }
 
+  static addControlSchedule({
+    required Map<String, dynamic> data,
+  }) async {
+    return Network().post(
+      url: 'control-schedule',
+      body: data,
+    );
+  }
+
   static getPrescription({
     String? limit,
     required String invoiceId,
@@ -99,6 +108,20 @@ class EndPoint {
   }) async {
     return Network().get(
       url: 'products',
+    );
+  }
+
+  static updateMedic({
+    required String inpatientId,
+  }) async {
+    return Network().get(
+      url: 'update-medical-record/$inpatientId',
+    );
+  }
+
+  static patientControleSchedule() async {
+    return Network().get(
+      url: 'control-schedule-doctor',
     );
   }
 

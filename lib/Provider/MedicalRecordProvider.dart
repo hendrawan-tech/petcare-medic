@@ -10,6 +10,10 @@ import 'package:medic_petcare/Utils/StorageKey.dart';
 class MedicalRecordProvider with ChangeNotifier {
   List setMedicalRecord = [];
   List get getMedicalRecord => setMedicalRecord;
+  List setPatientMedicalRecord = [];
+  List get getPatientMedicalRecord => setPatientMedicalRecord;
+  List setMedicalRecordHistory = [];
+  List get getMedicalRecordHistory => setMedicalRecordHistory;
   List setTreatment = [];
   List get getTreatment => setTreatment;
   List setDrug = [];
@@ -27,16 +31,64 @@ class MedicalRecordProvider with ChangeNotifier {
   String _idInvoice = "";
   String get idInvoice => _idInvoice;
 
-  bool setIsLoading = true;
-  bool get isLoading => setIsLoading;
+  bool setIsLoadingMedic = true;
+  bool get isLoadingMedic => setIsLoadingMedic;
+  bool setIsLoadingDrug = true;
+  bool get isLoadingDrug => setIsLoadingDrug;
+  bool setIsLoadingTreatment = true;
+  bool get isLoadingTreatment => setIsLoadingTreatment;
+  bool setIsLoadingPrescription = true;
+  bool get isLoadingPrescription => setIsLoadingPrescription;
+  bool setIsLoadingControlSchedule = true;
+  bool get isLoadingControlSchedule => setIsLoadingControlSchedule;
 
   Future<Map<String, dynamic>> listMedicalRecord() async {
     try {
-      setIsLoading = true;
+      setIsLoadingMedic = true;
+      setMedicalRecordHistory = [];
+      setMedicalRecord = [];
       var response = await EndPoint.getMedicalRecord();
       if (response['meta']['code'] == 200) {
-        setMedicalRecord = response['data']['data'];
-        setIsLoading = false;
+        for (var data in response['data']['data']) {
+          if (data['medical_record']['inpatients']['status'] == 'Dirawat') {
+            setMedicalRecord.add(data);
+            setIsLoadingMedic = false;
+            notifyListeners();
+          } else {
+            setMedicalRecordHistory.add(data);
+            setIsLoadingMedic = false;
+            notifyListeners();
+          }
+        }
+        setIsLoadingMedic = false;
+        notifyListeners();
+        return response;
+      } else {
+        return response;
+      }
+    } catch (e) {
+      return {
+        "message": e.toString(),
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> listPatientControlSchedule() async {
+    try {
+      setIsLoadingMedic = true;
+      setPatientMedicalRecord = [];
+      var response = await EndPoint.patientControleSchedule();
+      if (response['meta']['code'] == 200) {
+        for (var data in response['data']['data']) {
+          if (data['medical_record']['inpatients']['invoice']
+                  ['control_scedules'] !=
+              null) {
+            setPatientMedicalRecord.add(data);
+            setIsLoadingMedic = false;
+            notifyListeners();
+          }
+        }
+        setIsLoadingMedic = false;
         notifyListeners();
         return response;
       } else {
@@ -81,11 +133,11 @@ class MedicalRecordProvider with ChangeNotifier {
 
   Future<Map<String, dynamic>> listDrug() async {
     try {
-      setIsLoading = true;
+      setIsLoadingDrug = true;
       var response = await EndPoint.getDrug();
       if (response['meta']['code'] == 200) {
         setDrug = response['data']['data'];
-        setIsLoading = false;
+        setIsLoadingDrug = false;
         notifyListeners();
         return response;
       } else {
@@ -102,7 +154,7 @@ class MedicalRecordProvider with ChangeNotifier {
     required List data,
   }) async {
     try {
-      setIsLoading = true;
+      setIsLoadingDrug = true;
       var listData = [];
       for (var item in data) {
         listData.add({
@@ -118,11 +170,11 @@ class MedicalRecordProvider with ChangeNotifier {
         invoiceId: _idInvoice,
       );
       if (response['meta']['code'] == 200) {
-        setIsLoading = false;
+        setIsLoadingDrug = false;
         notifyListeners();
         return response;
       } else {
-        setIsLoading = false;
+        setIsLoadingDrug = false;
         notifyListeners();
         return response;
       }
@@ -135,17 +187,17 @@ class MedicalRecordProvider with ChangeNotifier {
 
   Future<Map<String, dynamic>> listTreatment() async {
     try {
-      setIsLoading = true;
+      setIsLoadingTreatment = true;
       var response = await EndPoint.getTreatment(
         invoiceId: _idInvoice,
       );
       if (response['meta']['code'] == 200) {
         setTreatment = response['data']['data'];
-        setIsLoading = false;
+        setIsLoadingTreatment = false;
         notifyListeners();
         return response;
       } else {
-        setIsLoading = false;
+        setIsLoadingTreatment = false;
         notifyListeners();
         return response;
       }
@@ -160,13 +212,13 @@ class MedicalRecordProvider with ChangeNotifier {
     required Map<String, dynamic> data,
   }) async {
     try {
-      setIsLoading = true;
+      setIsLoadingTreatment = true;
       data['invoice_id'] = _idInvoice.toString();
       if (data['photo'] == null) {
         var response = await EndPoint.addTreatment(
           data: data,
         );
-        setIsLoading = false;
+        setIsLoadingTreatment = false;
         if (response['meta']['code'] == 200) {
           notifyListeners();
           return response;
@@ -196,11 +248,11 @@ class MedicalRecordProvider with ChangeNotifier {
               (result) => http.Response.fromStream(result).then(
                 (response) {
                   if (response.statusCode == 200) {
-                    setIsLoading = false;
+                    setIsLoadingTreatment = false;
                     notifyListeners();
                     return response;
                   } else {
-                    setIsLoading = false;
+                    setIsLoadingTreatment = false;
                     notifyListeners();
                     print(response.body);
                   }
@@ -219,13 +271,13 @@ class MedicalRecordProvider with ChangeNotifier {
 
   Future<Map<String, dynamic>> listPrescription() async {
     try {
-      setIsLoading = true;
+      setIsLoadingPrescription = true;
       var response = await EndPoint.getPrescription(
         invoiceId: _idInvoice,
       );
       if (response['meta']['code'] == 200) {
         setPrescription = response['data']['data'];
-        setIsLoading = false;
+        setIsLoadingPrescription = false;
         notifyListeners();
         return response;
       } else {
@@ -240,13 +292,56 @@ class MedicalRecordProvider with ChangeNotifier {
 
   Future<Map<String, dynamic>> listControlSchedule() async {
     try {
-      setIsLoading = true;
+      setIsLoadingControlSchedule = true;
       var response = await EndPoint.getControlSchedule(
         invoiceId: _idInvoice,
       );
       if (response['meta']['code'] == 200) {
         setControlSchedule = response['data']['data'];
-        setIsLoading = false;
+        setIsLoadingControlSchedule = false;
+        notifyListeners();
+        return response;
+      } else {
+        return response;
+      }
+    } catch (e) {
+      return {
+        "message": e.toString(),
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> addControlSchedule({
+    required Map<String, dynamic> data,
+  }) async {
+    try {
+      setIsLoadingControlSchedule = true;
+      data['invoice_id'] = _idInvoice;
+      var response = await EndPoint.addControlSchedule(
+        data: data,
+      );
+      if (response['meta']['code'] == 200) {
+        setIsLoadingControlSchedule = false;
+        notifyListeners();
+        return response;
+      } else {
+        return response;
+      }
+    } catch (e) {
+      return {
+        "message": e.toString(),
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> updateMedic() async {
+    try {
+      setIsLoadingMedic = true;
+      var response = await EndPoint.updateMedic(
+        inpatientId: setItemMedicalRecord['invoice']['inpatient_id'].toString(),
+      );
+      if (response['meta']['code'] == 200) {
+        setIsLoadingMedic = false;
         notifyListeners();
         return response;
       } else {
@@ -263,18 +358,31 @@ class MedicalRecordProvider with ChangeNotifier {
     required Map<String, dynamic> data,
   }) async {
     try {
-      setIsLoading = true;
+      setIsLoadingMedic = true;
       var response = await EndPoint.addMedicalRecord(
         data: data,
       );
       if (response['meta']['code'] == 200) {
-        setItemMedicalRecord = response['data'];
-        setIsLoading = false;
+        setIsLoadingMedic = false;
         notifyListeners();
         return response;
       } else {
         return response;
       }
+    } catch (e) {
+      return {
+        "message": e.toString(),
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> itemMedicalRecord({
+    required Map<String, dynamic> data,
+  }) async {
+    try {
+      setItemMedicalRecord = data;
+      notifyListeners();
+      return data;
     } catch (e) {
       return {
         "message": e.toString(),

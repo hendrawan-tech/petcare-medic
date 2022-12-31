@@ -81,7 +81,7 @@ class _StepPrescriptionScreenState extends State<StepPrescriptionScreen> {
               ),
               Consumer<MedicalRecordProvider>(
                 builder: (context, value, child) {
-                  return value.isLoading
+                  return value.isLoadingPrescription
                       ? CircleLoadingWidget()
                       : value.getPrescription.isEmpty
                           ? EmptyWidget(text: "Tidak ada data Resep Obat")

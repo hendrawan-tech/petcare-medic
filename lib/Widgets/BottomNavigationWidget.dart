@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medic_petcare/Screen/Acccount/AccountLandingScreen.dart';
 
 import 'package:medic_petcare/Screen/Home/HomeScreen.dart';
+import 'package:medic_petcare/Screen/Home/InvoiceScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordScreen.dart';
 import 'package:medic_petcare/Screen/Patient/ListPatientScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/MedicalRecordLandingScreen.dart';
@@ -27,7 +28,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const MedicalRecordLandingScreen(),
-    const MedicalRecordScreen(),
+    const InvoiceScreen(),
     const ListPatientScreen(),
     const AccountLandingScreen(),
   ];
@@ -99,7 +100,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             BottomNavigationBarItem(
               icon: getIcon(invoiceIcon),
               activeIcon: getIcon(invoiceActiveIcon),
-              label: "Traksaksi",
+              label: "Tagihan",
             ),
             BottomNavigationBarItem(
               icon: getIcon(usersIcon),
