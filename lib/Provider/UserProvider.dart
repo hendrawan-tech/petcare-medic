@@ -14,7 +14,6 @@ class UserProvider with ChangeNotifier {
       var response = await EndPoint.urlLogin(
         body: body,
       );
-      print(response);
       if (response['meta']['code'] == 200) {
         Storage.save(tokenStorageKey, response['data']['token']);
         setUserData = response['data']['user'];
@@ -39,13 +38,16 @@ class UserProvider with ChangeNotifier {
         return response;
       } else {
         return {
-          "code": response['code'],
-          "message": response['message'],
+          "meta": {
+            "code": 403,
+          },
         };
       }
     } catch (e) {
       return {
-        "message": e.toString(),
+        "meta": {
+          "code": 403,
+        },
       };
     }
   }

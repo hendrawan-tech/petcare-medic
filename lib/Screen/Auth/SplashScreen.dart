@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacementNamed(
           context,
           Routes.homeScreen,
-        ); 
+        );
       } else {
         Navigator.pushReplacementNamed(
           context,
