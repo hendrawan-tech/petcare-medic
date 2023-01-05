@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Provider/MedicalRecordProvider.dart';
-import 'package:medic_petcare/Utils/Static.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
 import 'package:medic_petcare/Widgets/CardControlScheduleWidget.dart';
 import 'package:medic_petcare/Widgets/EmptyWidget.dart';
 import 'package:medic_petcare/Widgets/HeaderWidget.dart';
-import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/LoadingWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
 import 'package:provider/provider.dart';
@@ -62,15 +60,26 @@ class _ControlSceduleScreenState extends State<ListControlSceduleScreen> {
                                 weight: "bold",
                                 color: fontPrimaryColor,
                               ),
+                              const SizedBox(
+                                height: 12,
+                              ),
                               ListView.builder(
                                 itemCount: value.getPatientMedicalRecord.length,
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
-                                  return CardControlScheduleWidget(
-                                    data: value.getPatientMedicalRecord[index],
-                                    onPress: () {},
-                                  );
+                                  if (value.getPatientMedicalRecord[index]
+                                              ['medical_record']['inpatients']
+                                          ['type'] ==
+                                      'Rawat Jalan') {
+                                    return CardControlScheduleWidget(
+                                      data:
+                                          value.getPatientMedicalRecord[index],
+                                      onPress: () {},
+                                    );
+                                  } else {
+                                    return Container();
+                                  }
                                 },
                               ),
                             ],

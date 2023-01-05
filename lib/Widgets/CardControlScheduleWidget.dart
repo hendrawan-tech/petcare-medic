@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic_petcare/Utils/Themes.dart';
+import 'package:medic_petcare/Utils/Utils.dart';
 import 'package:medic_petcare/Widgets/BadgeWidget.dart';
 import 'package:medic_petcare/Widgets/ImageWidget.dart';
 import 'package:medic_petcare/Widgets/TextWidget.dart';
@@ -44,13 +45,11 @@ class CardControlScheduleWidget extends StatelessWidget {
                   ),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      66,
-                    ),
                     color: warningColor,
+                    shape: BoxShape.circle,
                   ),
                   child: ImageWidget(
-                    image: data['image'],
+                    image: data['patient']['image'],
                     height: 66,
                   ),
                 ),
@@ -58,26 +57,22 @@ class CardControlScheduleWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextWidget(
-                      label: data['name'],
+                      label: data['patient']['name'],
                       type: 's3',
                       color: fontPrimaryColor,
                       weight: 'bold',
                     ),
                     TextWidget(
-                      label: data['date'],
+                      label: parseMounth(
+                        data['medical_record']['inpatients']['invoice']
+                            ['control_scedules']['date_control'],
+                      ),
                       type: 'b2',
                       color: fontPrimaryColor,
                     ),
                   ],
                 ),
               ],
-            ),
-          ),
-          Positioned(
-            right: 12,
-            top: 10,
-            child: BadgeWidget(
-              label: data['time'],
             ),
           ),
         ],

@@ -1,7 +1,6 @@
 import 'package:medic_petcare/Routes/Routes.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/Care/StepCareScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/ControleSchedule/StepControlScheduleScreen.dart';
-import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepAddPrescriptionScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/Prescription/StepPrescriptionScreen.dart';
 import 'package:medic_petcare/Screen/MedicalRecord/Review/StepReviewScreen.dart';
 import 'package:medic_petcare/Utils/Images.dart';
@@ -350,7 +349,7 @@ List<Map<String, dynamic>> categoryRawatInap = [
     "screen": const StepPrescriptionScreen(),
   },
   {
-    "label": "Rincian Tagihan",
+    "label": "Rincian",
     "icon": fileIcon,
     "activeIcon": fileActiveIcon,
     "screen": const StepReviewScreen(),
@@ -371,7 +370,7 @@ List<Map<String, dynamic>> categoryRawatJalan = [
     "screen": const StepPrescriptionScreen(),
   },
   {
-    "label": "Rincian Tagihan",
+    "label": "Rincian",
     "icon": fileIcon,
     "activeIcon": fileActiveIcon,
     "screen": const StepReviewScreen(),
@@ -386,7 +385,7 @@ List<Map<String, dynamic>> categoryPulang = [
     "screen": const StepPrescriptionScreen(),
   },
   {
-    "label": "Rincian Tagihan",
+    "label": "Rincian",
     "icon": fileIcon,
     "activeIcon": fileActiveIcon,
     "screen": const StepReviewScreen(),
