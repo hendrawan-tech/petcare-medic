@@ -27,6 +27,8 @@ class MedicalRecordProvider with ChangeNotifier {
 
   Map setItemMedicalRecord = {};
   Map get getItemMedicalRecord => setItemMedicalRecord;
+  Map setInvoice = {};
+  Map get getInvoice => setInvoice;
 
   String _idInvoice = "";
   String get idInvoice => _idInvoice;
@@ -41,6 +43,8 @@ class MedicalRecordProvider with ChangeNotifier {
   bool get isLoadingPrescription => setIsLoadingPrescription;
   bool setIsLoadingControlSchedule = true;
   bool get isLoadingControlSchedule => setIsLoadingControlSchedule;
+  bool setIsLoadingInvoice = true;
+  bool get isLoadingInvoice => setIsLoadingInvoice;
 
   Future<Map<String, dynamic>> listMedicalRecord() async {
     try {
@@ -334,6 +338,27 @@ class MedicalRecordProvider with ChangeNotifier {
     }
   }
 
+  Future<Map<String, dynamic>> dataInvoice() async {
+    try {
+      setIsLoadingInvoice = true;
+      var response = await EndPoint.getInvoice(
+        invoiceId: _idInvoice,
+      );
+      if (response['meta']['code'] == 200) {
+        setInvoice = response['data'];
+        setIsLoadingInvoice = false;
+        notifyListeners();
+        return response;
+      } else {
+        return response;
+      }
+    } catch (e) {
+      return {
+        "message": e.toString(),
+      };
+    }
+  }
+
   Future<Map<String, dynamic>> updateMedic() async {
     try {
       setIsLoadingMedic = true;
@@ -341,6 +366,7 @@ class MedicalRecordProvider with ChangeNotifier {
         inpatientId: setItemMedicalRecord['invoice']['inpatient_id'].toString(),
       );
       if (response['meta']['code'] == 200) {
+        setItemMedicalRecord = response['data'];
         setIsLoadingMedic = false;
         notifyListeners();
         return response;

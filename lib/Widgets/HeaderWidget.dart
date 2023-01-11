@@ -13,6 +13,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
   final Widget? widgetTitle;
   final Function? customBackAction;
   final Function? customLeftAction;
+  final bool useBackButton;
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
@@ -34,6 +35,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
     this.customLeadingIconColor,
     this.translate = "",
     this.param = "",
+    this.useBackButton = true,
   }) : super(key: key);
 
   onBackIconTapped(context) {
@@ -74,21 +76,23 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: bgColor.runtimeType == Null ? whiteColor : bgColor,
         foregroundColor:
             frontColor.runtimeType == Null ? fontPrimaryColor : frontColor,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: customLeadingIconColor ?? primaryColor,
-          ),
-          onPressed: () {
-            if (customLeftAction != null) {
-              customLeftAction!();
-            } else if (onBackIconTapped != null) {
-              onBackIconTapped(context);
-            } else {
-              Navigator.pop(context);
-            }
-          },
-        ),
+        leading: useBackButton
+            ? IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: customLeadingIconColor ?? primaryColor,
+                ),
+                onPressed: () {
+                  if (customLeftAction != null) {
+                    customLeftAction!();
+                  } else if (onBackIconTapped != null) {
+                    onBackIconTapped(context);
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
+              )
+            : Container(),
       ),
     );
   }

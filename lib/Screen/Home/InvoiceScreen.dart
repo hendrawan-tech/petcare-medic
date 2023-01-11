@@ -22,6 +22,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
     return Scaffold(
       appBar: const HeaderWidget(
         title: "Daftar Tagihan",
+        useBackButton: false,
       ),
       backgroundColor: whiteColor,
       body: SingleChildScrollView(

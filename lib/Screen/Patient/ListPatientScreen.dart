@@ -36,6 +36,7 @@ class _ListPatientScreenState extends State<ListPatientScreen> {
       backgroundColor: backgroundColor,
       appBar: const HeaderWidget(
         title: "Daftar Pasien",
+        useBackButton: false,
       ),
       body: SingleChildScrollView(
         child: Column(

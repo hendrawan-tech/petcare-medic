@@ -85,6 +85,15 @@ class EndPoint {
     );
   }
 
+  static getInvoice({
+    String? limit,
+    required String invoiceId,
+  }) async {
+    return Network().get(
+      url: 'invoice?invoice_id=$invoiceId',
+    );
+  }
+
   static addControlSchedule({
     required Map<String, dynamic> data,
   }) async {

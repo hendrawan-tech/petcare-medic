@@ -36,7 +36,8 @@ class _MedicalRecordLandingScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HeaderWidget(
-        title: "Perawatan",
+        title: "Rekam Medis",
+        useBackButton: false,
       ),
       backgroundColor: whiteColor,
       body: SingleChildScrollView(

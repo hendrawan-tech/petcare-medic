@@ -20,7 +20,7 @@ class _StepReviewScreenState extends State<StepReviewScreen> {
     super.initState();
   }
 
-  getData() {
+  getData() async {
     Provider.of<MedicalRecordProvider>(
       context,
       listen: false,
@@ -28,15 +28,15 @@ class _StepReviewScreenState extends State<StepReviewScreen> {
     Provider.of<MedicalRecordProvider>(
       context,
       listen: false,
-    ).listDrug();
+    ).listPrescription();
+    Provider.of<MedicalRecordProvider>(
+      context,
+      listen: false,
+    ).dataInvoice();
   }
 
   @override
   Widget build(BuildContext context) {
-    var invoice = Provider.of<MedicalRecordProvider>(
-      context,
-      listen: false,
-    ).getItemMedicalRecord;
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
@@ -165,13 +165,19 @@ class _StepReviewScreenState extends State<StepReviewScreen> {
                       type: 's3',
                       color: fontPrimaryColor,
                     ),
-                    TextWidget(
-                      label: formatPrice(
-                        amount: invoice['invoice']['total'].toString(),
-                      ),
-                      weight: 'bold',
-                      type: 's3',
-                      color: fontPrimaryColor,
+                    Consumer<MedicalRecordProvider>(
+                      builder: (context, value, child) {
+                        return TextWidget(
+                          label: value.isLoadingInvoice
+                              ? 'Loading . . .'
+                              : formatPrice(
+                                  amount: value.getInvoice['total'].toString(),
+                                ),
+                          weight: 'bold',
+                          type: 's3',
+                          color: fontPrimaryColor,
+                        );
+                      },
                     ),
                   ],
                 ),
